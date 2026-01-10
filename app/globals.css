@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-coal bg-serenade antialiased;
+  }
+
+  /* Animazioni scroll */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animazione fade-in-up */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animazione scale-in */
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Animazione slide-in-left */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animazione slide-in-right */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animazione bounce */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Animazione pulse */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Animazione float */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Animazione wiggle */
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-5deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+  }
+
+  /* Animazione shake */
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  /* Animazione glow */
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(255, 198, 92, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(255, 198, 92, 0.8), 0 0 60px rgba(255, 198, 92, 0.4);
+    }
+  }
+
+  /* Animazione shimmer */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Animazione rotate */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Animazione heartbeat */
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.1);
+    }
+  }
+
+  /* Animazione typing cursor */
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+
+  /* Animazione gradient shift */
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Animazione stagger per elementi in lista */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+}
+
+@layer components {
+  /* Bottone primario giallo - stile Figma */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-golden text-coal font-semibold rounded-xl 
+           border-b-4 border-violet hover:bg-golden-light transform hover:-translate-y-0.5 
+           transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-golden focus:ring-offset-2;
+  }
+  
+  /* Bottone secondario viola */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-violet text-serenade font-semibold rounded-full 
+           shadow-button hover:bg-violet-light transform hover:-translate-y-0.5 
+           transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-violet focus:ring-offset-2;
+  }
+  
+  /* Bottone outline viola */
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-transparent text-violet font-semibold rounded-full 
+           border-2 border-violet hover:bg-violet hover:text-serenade transform hover:-translate-y-0.5 
+           transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-violet focus:ring-offset-2;
+  }
+  
+  /* Card stile Figma */
+  .card {
+    @apply bg-white rounded-3xl shadow-card hover:shadow-card-hover transition-all duration-300 border-b-4 border-violet/20;
+  }
+  
+  /* Card viola */
+  .card-violet {
+    @apply bg-violet rounded-3xl shadow-card hover:shadow-card-hover transition-all duration-300 text-serenade;
+  }
+  
+  /* Input field */
+  .input-field {
+    @apply w-full px-5 py-4 border-2 border-coal/20 rounded-xl focus:outline-none focus:ring-2 
+           focus:ring-violet focus:border-violet transition-all duration-200 bg-white text-coal placeholder-coal/50;
+  }
+  
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-violet {
+    @apply badge bg-violet/10 text-violet;
+  }
+  
+  .badge-golden {
+    @apply badge bg-golden/20 text-coal;
+  }
+  
+  /* Titoli - font Passion One uppercase */
+  .heading-1 {
+    @apply text-5xl md:text-7xl lg:text-8xl font-display font-normal text-violet uppercase tracking-tight leading-none;
+  }
+  
+  .heading-2 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-normal text-violet uppercase tracking-tight leading-tight;
+  }
+  
+  .heading-3 {
+    @apply text-2xl md:text-3xl font-display font-normal text-violet uppercase tracking-tight;
+  }
+  
+  /* Testo body */
+  .body-text {
+    @apply text-lg text-coal leading-relaxed;
+  }
+  
+  /* Link navbar - stile Figma */
+  .nav-link {
+    @apply font-display text-xl uppercase tracking-tight text-violet hover:text-golden transition-colors;
+  }
+  
+  .nav-link-active {
+    @apply font-display text-xl uppercase tracking-tight text-golden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
