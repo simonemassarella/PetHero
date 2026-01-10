@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { professionals, searchProfessionals, ServiceType } from '@/data/professionals'
 import CardProfessionista from '@/components/CardProfessionista'
 import Filters from '@/components/Filters'
 
-export default function CercaPage() {
+function CercaContent() {
   const searchParams = useSearchParams()
   
   const initialCity = searchParams.get('city') || ''
@@ -93,5 +93,20 @@ export default function CercaPage() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function CercaPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-serenade flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4 animate-bounce">🐾</div>
+          <p className="text-violet font-display text-xl">Caricamento...</p>
+        </div>
+      </div>
+    }>
+      <CercaContent />
+    </Suspense>
   )
 }
