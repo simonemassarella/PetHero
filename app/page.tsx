@@ -73,8 +73,8 @@ export default function Home() {
             </span>
           </h1>
 
-          {/* Sottotitolo */}
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-coal font-medium mb-10 md:mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          {/* Sottotitolo / Payoff - MOLTO GRANDE */}
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-coal font-semibold mb-10 md:mb-12 max-w-3xl mx-auto animate-fade-in-up leading-tight" style={{ animationDelay: '0.2s' }}>
             Chi si prende cura del tuo{' '}
             <span className="text-violet font-bold">pet</span>, come faresti{' '}
             <span className="text-golden font-bold">tu</span>.
