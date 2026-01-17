@@ -9,6 +9,7 @@ export type ServiceType =
   | 'pet_taxi'
   | 'pet_shop'
   | 'fisioterapia'
+  | 'onoranze_funebri'
 
 export type PetType = 'cane' | 'gatto' | 'piccoli_animali' | 'uccelli' | 'rettili'
 
@@ -72,6 +73,7 @@ export const serviceTypeLabels: Record<ServiceType, string> = {
   pet_taxi: 'Pet Taxi',
   pet_shop: 'Pet Shop',
   fisioterapia: 'Fisioterapia',
+  onoranze_funebri: 'Onoranze Funebri',
 }
 
 export const serviceTypeIcons: Record<ServiceType, string> = {
@@ -85,6 +87,7 @@ export const serviceTypeIcons: Record<ServiceType, string> = {
   pet_taxi: '🚗',
   pet_shop: '🛒',
   fisioterapia: '💪',
+  onoranze_funebri: '🕯️',
 }
 
 export const serviceTypeDescriptions: Record<ServiceType, string> = {
@@ -98,6 +101,7 @@ export const serviceTypeDescriptions: Record<ServiceType, string> = {
   pet_taxi: 'Trasporto sicuro per animali',
   pet_shop: 'Negozi specializzati per animali',
   fisioterapia: 'Riabilitazione e cure per animali',
+  onoranze_funebri: 'Cremazione e servizi funebri per animali',
 }
 
 export const petTypeLabels: Record<PetType, string> = {
@@ -524,6 +528,42 @@ export const professionals: Professional[] = [
     createdAt: '2020-09-15',
     gallery: [
       'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600',
+    ],
+  },
+  {
+    id: '11',
+    name: 'Pet Heaven - Onoranze Funebri',
+    email: 'info@petheaven.it',
+    phone: '+39 06 77889900',
+    avatar: 'https://images.unsplash.com/photo-1518882605630-8eb548e00a2e?w=200',
+    coverImage: 'https://images.unsplash.com/photo-1518882605630-8eb548e00a2e?w=1200',
+    bio: 'Servizi funebri per animali domestici con rispetto e dignità. Cremazione individuale, urne personalizzate, giardino della memoria e supporto psicologico per il lutto.',
+    city: 'Roma',
+    province: 'Roma',
+    address: 'Via Casilina, 890',
+    serviceTypes: ['onoranze_funebri'],
+    petTypes: ['cane', 'gatto', 'piccoli_animali', 'uccelli', 'rettili'],
+    services: [
+      { id: 's30', name: 'Cremazione Individuale', description: 'Cremazione con restituzione ceneri in urna', price: 150, duration: '3-5 giorni' },
+      { id: 's31', name: 'Cremazione Collettiva', description: 'Cremazione senza restituzione ceneri', price: 80, duration: '1 settimana' },
+      { id: 's32', name: 'Urna Personalizzata', description: 'Urna con foto e incisione nome', price: 60, duration: 'incluso' },
+    ],
+    badges: [
+      { id: 'b1', name: 'Verificato', icon: '✓', color: 'green' },
+      { id: 'b18', name: 'Supporto H24', icon: '🕐', color: 'blue' },
+      { id: 'b19', name: 'Giardino Memoria', icon: '🌳', color: 'green' },
+    ],
+    collaborations: ['Clinica Veterinaria San Francesco', 'Ordine Veterinari Roma'],
+    reviews: [
+      { id: 'r15', authorName: 'Carla Benedetti', authorAvatar: 'https://randomuser.me/api/portraits/women/62.jpg', rating: 5, comment: 'Hanno trattato il mio amato cane con grande rispetto. Servizio impeccabile in un momento difficile.', date: '2024-01-25' },
+    ],
+    rating: 4.9,
+    totalReviews: 89,
+    verified: true,
+    subscriptionTier: 'premium',
+    createdAt: '2019-03-10',
+    gallery: [
+      'https://images.unsplash.com/photo-1518882605630-8eb548e00a2e?w=600',
     ],
   },
 ]
