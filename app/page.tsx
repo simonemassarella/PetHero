@@ -47,96 +47,103 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Super Cool Animated */}
-      <section className="relative min-h-[100svh] flex items-center bg-serenade overflow-hidden pt-20 pb-10 md:pt-0 md:pb-0">
-        {/* Animated Background Particles - Hidden on mobile for performance */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
-          {/* Floating Paw Prints */}
-          <div className="absolute top-[10%] left-[5%] text-6xl opacity-10 animate-float" style={{ animationDelay: '0s' }}>🐾</div>
-          <div className="absolute top-[20%] right-[10%] text-5xl opacity-10 animate-float" style={{ animationDelay: '0.5s' }}>🐾</div>
-          <div className="absolute top-[60%] left-[15%] text-4xl opacity-10 animate-float" style={{ animationDelay: '1s' }}>🐾</div>
-          <div className="absolute top-[70%] right-[20%] text-7xl opacity-10 animate-float" style={{ animationDelay: '1.5s' }}>🐾</div>
-          <div className="absolute top-[40%] left-[80%] text-5xl opacity-10 animate-float" style={{ animationDelay: '2s' }}>🐾</div>
-          
-          {/* Animated Circles */}
-          <div className="absolute top-[15%] right-[25%] w-32 h-32 rounded-full bg-violet/5 animate-pulse-slow" />
-          <div className="absolute bottom-[20%] left-[10%] w-48 h-48 rounded-full bg-golden/10 animate-pulse-slow" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-[50%] right-[5%] w-24 h-24 rounded-full bg-teal/10 animate-pulse-slow" style={{ animationDelay: '2s' }} />
+      <section className="relative min-h-[100svh] flex items-center justify-center bg-serenade overflow-hidden">
+        {/* Animated Background Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Floating Paw Prints - Visible on all screens */}
+          <div className="absolute top-[15%] left-[5%] text-4xl sm:text-5xl md:text-6xl opacity-10 animate-float" style={{ animationDelay: '0s' }}>🐾</div>
+          <div className="absolute top-[25%] right-[8%] text-3xl sm:text-4xl md:text-5xl opacity-10 animate-float" style={{ animationDelay: '0.5s' }}>🐾</div>
+          <div className="absolute bottom-[25%] left-[10%] text-3xl sm:text-4xl opacity-10 animate-float" style={{ animationDelay: '1s' }}>🐾</div>
+          <div className="absolute bottom-[15%] right-[15%] text-4xl sm:text-5xl md:text-7xl opacity-10 animate-float" style={{ animationDelay: '1.5s' }}>🐾</div>
           
           {/* Gradient Orbs */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-violet/20 to-transparent rounded-full blur-3xl animate-pulse-slow" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-tl from-golden/20 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-gradient-to-br from-violet/20 to-transparent rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-0 right-0 w-56 sm:w-72 md:w-80 h-56 sm:h-72 md:h-80 bg-gradient-to-tl from-golden/20 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
         </div>
 
-        {/* Social Media Icons - Left Side with Stagger Animation */}
-        <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-10">
-          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 hover:rotate-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-            <Facebook size={20} strokeWidth={2.5} />
+        {/* Social Media Icons - Left Side */}
+        <div className="absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3 lg:gap-4 z-10">
+          <a href="#" className="w-10 h-10 lg:w-11 lg:h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <Facebook size={18} strokeWidth={2.5} />
           </a>
-          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 hover:rotate-12 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <Instagram size={20} strokeWidth={2.5} />
+          <a href="#" className="w-10 h-10 lg:w-11 lg:h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+            <Instagram size={18} strokeWidth={2.5} />
           </a>
-          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 hover:rotate-12 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-            <Twitter size={20} strokeWidth={2.5} />
+          <a href="#" className="w-10 h-10 lg:w-11 lg:h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+            <Twitter size={18} strokeWidth={2.5} />
           </a>
         </div>
 
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 sm:py-16 md:py-20 w-full relative z-10">
-          {/* Happy Paws Badge - Animated Entry */}
-          <div className="flex justify-center mb-6 sm:mb-8 md:mb-10 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="flex items-center gap-2 sm:gap-3 bg-white/50 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-default">
-              {/* Stacked Pet Images with Hover Effect */}
-              <div className="relative h-[40px] sm:h-[50px] md:h-[60px] w-[100px] sm:w-[120px] md:w-[150px] group">
-                <div className="absolute left-0 top-0 w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden border-[3px] sm:border-[4px] md:border-[5px] border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-10">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-20 md:py-24 relative z-10">
+          {/* Happy Paws Badge */}
+          <div className="flex justify-center mb-8 sm:mb-10 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <div className="flex items-center gap-2 sm:gap-3 bg-white/60 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full shadow-lg">
+              {/* Stacked Pet Images */}
+              <div className="relative h-[36px] sm:h-[44px] md:h-[52px] w-[90px] sm:w-[110px] md:w-[130px]">
+                <div className="absolute left-0 top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
                   <Image src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-[20px] sm:left-[25px] md:left-[30px] top-0 w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden border-[3px] sm:border-[4px] md:border-[5px] border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-20" style={{ transitionDelay: '50ms' }}>
+                <div className="absolute left-[18px] sm:left-[22px] md:left-[26px] top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
                   <Image src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-[40px] sm:left-[50px] md:left-[60px] top-0 w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden border-[3px] sm:border-[4px] md:border-[5px] border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-30" style={{ transitionDelay: '100ms' }}>
+                <div className="absolute left-[36px] sm:left-[44px] md:left-[52px] top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
                   <Image src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-[60px] sm:left-[75px] md:left-[90px] top-0 w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden border-[3px] sm:border-[4px] md:border-[5px] border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-40" style={{ transitionDelay: '150ms' }}>
+                <div className="absolute left-[54px] sm:left-[66px] md:left-[78px] top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
                   <Image src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=100" alt="Pet" fill className="object-cover" />
                 </div>
               </div>
-              {/* Text with Counter Effect */}
-              <span className="text-coal text-xs sm:text-sm md:text-base font-semibold tracking-wide whitespace-nowrap">
+              <span className="text-coal text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
                 <AnimatedCounter end={2500} duration={2000} suffix="+ Happy Paws" />
               </span>
             </div>
           </div>
 
-          {/* Main Heading - Staggered Letter Animation */}
-          <div className="text-center mb-6 sm:mb-8 md:mb-10">
-            <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[4rem] lg:text-[6rem] xl:text-[8rem] font-display uppercase tracking-[-0.02em] leading-[0.95] sm:leading-[0.9]">
-              <span className="inline-block animate-fade-in-up text-violet" style={{ animationDelay: '0.2s' }}>IL MIGLIOR PET CARE</span><br />
-              <span className="inline-block animate-fade-in-up text-violet" style={{ animationDelay: '0.4s' }}>PER IL TUO MIGLIORE </span>
-              <span className="inline-block animate-fade-in-up text-teal animate-pulse-slow" style={{ animationDelay: '0.6s' }}>AMICO</span>
+          {/* Main Heading - ENORME su mobile */}
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h1 className="font-display uppercase leading-[0.85]">
+              <span className="block text-[3.5rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] text-violet animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                IL MIGLIOR
+              </span>
+              <span className="block text-[3.5rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] text-violet animate-fade-in-up" style={{ animationDelay: '0.35s' }}>
+                PET CARE
+              </span>
+              <span className="block text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] xl:text-[7rem] animate-fade-in-up mt-2" style={{ animationDelay: '0.5s' }}>
+                <span className="text-violet">PER IL TUO </span>
+                <span className="text-teal">AMICO</span>
+              </span>
             </h1>
           </div>
 
-          {/* Payoff with Highlight Animation - BIGGER on mobile */}
-          <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-14 animate-fade-in-up px-4" style={{ animationDelay: '0.7s' }}>
-            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-coal font-semibold tracking-[-0.01em] leading-normal sm:leading-snug">
-              Chi si prende cura del tuo <span className="text-violet font-bold relative inline-block">pet<span className="absolute -bottom-1 left-0 w-full h-1 bg-violet/40 rounded-full" /></span>, come faresti <span className="text-golden font-bold relative inline-block">tu<span className="absolute -bottom-1 left-0 w-full h-1 bg-golden/50 rounded-full" /></span>.
+          {/* Payoff - Grande e leggibile */}
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 animate-fade-in-up px-2" style={{ animationDelay: '0.7s' }}>
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-coal font-medium leading-relaxed">
+              Chi si prende cura del tuo{' '}
+              <span className="text-violet font-bold relative">
+                pet
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-violet/40 rounded-full" />
+              </span>
+              , come faresti{' '}
+              <span className="text-golden font-bold relative">
+                tu
+                <span className="absolute -bottom-1 left-0 w-full h-1 bg-golden/50 rounded-full" />
+              </span>
+              .
             </p>
           </div>
 
-          {/* CTA Button - Animated with Glow */}
-          <div className="flex justify-center gap-4 flex-wrap animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <Link href="/cerca" className="group relative inline-flex items-center gap-2 sm:gap-3 bg-golden text-coal px-6 sm:px-8 md:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg md:text-xl border-b-4 border-violet hover:bg-golden-light transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden">
-              {/* Shimmer Effect */}
+          {/* CTA Button */}
+          <div className="flex justify-center animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+            <Link href="/cerca" className="group relative inline-flex items-center gap-2 sm:gap-3 bg-golden text-coal px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl border-b-4 border-violet hover:bg-golden-light transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden">
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               <span className="relative">Trova Professionista</span>
-              <ArrowRight size={20} className="sm:w-6 sm:h-6 relative group-hover:translate-x-2 transition-transform" strokeWidth={2.5} />
+              <ArrowRight size={22} className="relative group-hover:translate-x-2 transition-transform" strokeWidth={2.5} />
             </Link>
           </div>
-
         </div>
 
-        {/* Decorative Elements - More Dynamic */}
-        <div className="absolute bottom-10 right-10 text-8xl opacity-20 animate-float hidden lg:block">🐾</div>
-        <div className="absolute top-20 right-20 text-6xl opacity-15 animate-bounce hidden lg:block">🐕</div>
+        {/* Decorative Dog */}
+        <div className="absolute bottom-6 right-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl opacity-20 animate-bounce hidden sm:block">🐕</div>
       </section>
 
       {/* About Section - Groomer Style */}
