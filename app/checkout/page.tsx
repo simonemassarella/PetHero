@@ -3,7 +3,7 @@
 import { useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { CreditCard, Lock, Check, ArrowLeft, Shield } from 'lucide-react'
+import { CreditCard, Lock, Check, ArrowLeft, Shield, PawPrint } from 'lucide-react'
 import { subscriptionPlans } from '@/data/subscriptions'
 import { formatPrice } from '@/lib/utils'
 
@@ -345,7 +345,7 @@ export default function CheckoutPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-serenade flex items-center justify-center">
         <div className="text-center">
-          <div className="text-6xl mb-4 animate-bounce">🐾</div>
+          <PawPrint size={64} className="text-violet mx-auto mb-4 animate-bounce" strokeWidth={2} />
           <p className="text-violet font-display text-xl">Caricamento...</p>
         </div>
       </div>

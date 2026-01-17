@@ -37,7 +37,7 @@ export default function TerminiPage() {
             </h2>
             <div className="text-coal space-y-3 ml-13">
               <p>
-                PetHero è una piattaforma digitale che facilita l&apos;incontro tra proprietari di cani e professionisti (Dog Sitter, Pensioni, Educatori Cinofili).
+                PetLife è una piattaforma digitale che facilita l&apos;incontro tra proprietari di cani e professionisti (Dog Sitter, Pensioni, Educatori Cinofili).
               </p>
               <p>
                 La piattaforma non fornisce direttamente i servizi sugli animali e non è responsabile per danni, incidenti o malattie dell&apos;animale.
@@ -66,7 +66,7 @@ export default function TerminiPage() {
             <ul className="text-coal space-y-3 ml-13 list-disc list-inside">
               <li>Tutti i professionisti sono responsabili della cura degli animali affidati.</li>
               <li>Devono garantire esperienza, competenza e attenzione durante il servizio.</li>
-              <li>PetHero non è responsabile per incidenti, danni a terzi o malattie dell&apos;animale.</li>
+              <li>PetLife non è responsabile per incidenti, danni a terzi o malattie dell&apos;animale.</li>
               <li>È consigliata una polizza assicurativa RC per animali o responsabilità civile professionale.</li>
             </ul>
           </section>
@@ -78,7 +78,7 @@ export default function TerminiPage() {
               Responsabilità dei Clienti
             </h2>
             <ul className="text-coal space-y-3 ml-13 list-disc list-inside">
-              <li>Il cliente accetta che PetHero è solo intermediario.</li>
+              <li>Il cliente accetta che PetLife è solo intermediario.</li>
               <li>Deve fornire informazioni complete sul cane (salute, comportamenti, allergie).</li>
               <li>È responsabile di eventuali informazioni errate o omissioni che possano causare problemi durante il servizio.</li>
             </ul>
@@ -92,9 +92,9 @@ export default function TerminiPage() {
             </h2>
             <ul className="text-coal space-y-3 ml-13 list-disc list-inside">
               <li>Tutti i pagamenti passano tramite piattaforma con sistema sicuro di split payment (es. Stripe Connect).</li>
-              <li><strong className="text-coal-dark">Fee PetHero</strong> → trattenuta automatica (es. 3€ per lead o abbonamento)</li>
+              <li><strong className="text-coal-dark">Fee PetLife</strong> → trattenuta automatica (es. 3€ per lead o abbonamento)</li>
               <li><strong className="text-coal-dark">Saldo netto</strong> → trasferito direttamente al professionista</li>
-              <li>PetHero non è responsabile di ritardi nei pagamenti, ma garantisce trasparenza nella gestione.</li>
+              <li>PetLife non è responsabile di ritardi nei pagamenti, ma garantisce trasparenza nella gestione.</li>
             </ul>
           </section>
 
@@ -105,7 +105,7 @@ export default function TerminiPage() {
               Limitazioni
             </h2>
             <ul className="text-coal space-y-3 ml-13 list-disc list-inside">
-              <li>PetHero non è responsabile per danni diretti o indiretti, perdita di animali o malattie.</li>
+              <li>PetLife non è responsabile per danni diretti o indiretti, perdita di animali o malattie.</li>
               <li>La piattaforma non sostituisce servizi veterinari o di emergenza.</li>
               <li>Tutti i servizi vengono svolti sotto responsabilità del professionista.</li>
             </ul>
@@ -118,7 +118,7 @@ export default function TerminiPage() {
               Controlli
             </h2>
             <ul className="text-coal space-y-3 ml-13 list-disc list-inside">
-              <li>PetHero verifica l&apos;identità e le referenze dei professionisti.</li>
+              <li>PetLife verifica l&apos;identità e le referenze dei professionisti.</li>
               <li>Non garantisce l&apos;assenza di incidenti o problemi durante il servizio.</li>
               <li>È responsabilità del cliente leggere profili, recensioni e dettagli dei servizi.</li>
             </ul>
@@ -135,7 +135,7 @@ export default function TerminiPage() {
                 Registrandosi o utilizzando la piattaforma, clienti e professionisti accettano questi Termini e Condizioni.
               </p>
               <p>
-                PetHero si riserva il diritto di aggiornare i termini e notificherà gli utenti tramite email o messaggio in-app.
+                PetLife si riserva il diritto di aggiornare i termini e notificherà gli utenti tramite email o messaggio in-app.
               </p>
             </div>
           </section>
@@ -144,8 +144,8 @@ export default function TerminiPage() {
           <section className="pt-8 border-t border-coal/10">
             <p className="text-coal-light text-center">
               Per domande sui Termini e Condizioni, contattaci a{' '}
-              <a href="mailto:legal@pethero.it" className="text-violet hover:text-violet-dark">
-                legal@pethero.it
+              <a href="mailto:legal@petlife.it" className="text-violet hover:text-violet-dark">
+                legal@petlife.it
               </a>
             </p>
           </section>

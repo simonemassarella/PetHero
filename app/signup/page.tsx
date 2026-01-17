@@ -3,7 +3,7 @@
 import { useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { Mail, Lock, Eye, EyeOff, User, Phone, MapPin, UserPlus } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, User, Phone, MapPin, UserPlus, PawPrint, Dog, Briefcase } from 'lucide-react'
 import { cities } from '@/data/professionals'
 
 function SignupContent() {
@@ -76,8 +76,8 @@ function SignupContent() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2">
-            <span className="text-4xl">🐕</span>
-            <span className="font-display font-bold text-2xl text-neutral-900">PetHero</span>
+            <PawPrint size={32} className="text-violet" strokeWidth={2.5} />
+            <span className="font-display font-bold text-2xl"><span className="text-violet">Pet</span><span className="text-golden">Life</span></span>
           </Link>
           <h1 className="mt-6 text-2xl font-display font-bold text-neutral-900">
             Crea il tuo Account
@@ -101,7 +101,7 @@ function SignupContent() {
                 : 'border-neutral-200 hover:border-neutral-300'
             }`}
           >
-            <span className="text-2xl block mb-2">🐕</span>
+            <Dog size={28} className="text-violet mx-auto mb-2" strokeWidth={2} />
             <span className={`font-medium ${formData.role === 'dog_owner' ? 'text-primary-700' : 'text-neutral-700'}`}>
               Proprietario
             </span>
@@ -115,7 +115,7 @@ function SignupContent() {
                 : 'border-neutral-200 hover:border-neutral-300'
             }`}
           >
-            <span className="text-2xl block mb-2">👨‍💼</span>
+            <Briefcase size={28} className="text-violet mx-auto mb-2" strokeWidth={2} />
             <span className={`font-medium ${formData.role === 'professional' ? 'text-primary-700' : 'text-neutral-700'}`}>
               Professionista
             </span>
@@ -314,7 +314,7 @@ export default function SignupPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-serenade flex items-center justify-center">
         <div className="text-center">
-          <div className="text-6xl mb-4 animate-bounce">🐾</div>
+          <PawPrint size={64} className="text-violet mx-auto mb-4 animate-bounce" strokeWidth={2} />
           <p className="text-violet font-display text-xl">Caricamento...</p>
         </div>
       </div>

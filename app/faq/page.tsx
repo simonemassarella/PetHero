@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ChevronDown, User, Briefcase, Mail, ArrowRight, HelpCircle } from 'lucide-react'
+import { ChevronDown, User, Briefcase, Mail, ArrowRight, HelpCircle, PawPrint } from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
 
 interface FAQItem {
@@ -12,12 +12,12 @@ interface FAQItem {
 
 const clientFAQs: FAQItem[] = [
   {
-    question: 'PetHero è responsabile per danni al mio animale?',
-    answer: 'No, PetHero è solo intermediario. La responsabilità durante il servizio è del professionista.',
+    question: 'PetLife è responsabile per danni al mio animale?',
+    answer: 'No, PetLife è solo intermediario. La responsabilità durante il servizio è del professionista.',
   },
   {
     question: 'Come vengono gestiti i pagamenti?',
-    answer: 'Il pagamento avviene tramite PetHero. La piattaforma trattiene la fee (es. 3€) e il resto va al professionista tramite pagamento sicuro.',
+    answer: 'Il pagamento avviene tramite PetLife. La piattaforma trattiene la fee (es. 3€) e il resto va al professionista tramite pagamento sicuro.',
   },
   {
     question: 'Come scelgo un Dog Sitter o una Pensione?',
@@ -39,12 +39,12 @@ const professionalFAQs: FAQItem[] = [
     answer: 'Tramite la piattaforma. La fee viene trattenuta automaticamente e il saldo netto va sul tuo conto collegato.',
   },
   {
-    question: 'Devo pagare una fee a PetHero?',
+    question: 'Devo pagare una fee a PetLife?',
     answer: 'Sì, esiste una fee per lead (es. 3€ per contatto) e/o un abbonamento mensile per apparire sulla piattaforma.',
   },
   {
     question: 'Chi è responsabile se succede qualcosa all\'animale?',
-    answer: 'Tu, come professionista, sei responsabile per danni o incidenti durante il servizio. PetHero è solo intermediario.',
+    answer: 'Tu, come professionista, sei responsabile per danni o incidenti durante il servizio. PetLife è solo intermediario.',
   },
   {
     question: 'Come posso diventare un professionista verificato?',
@@ -97,8 +97,8 @@ export default function FAQPage() {
       {/* Header - Groomer Style */}
       <section className="bg-violet py-16 md:py-20 relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 text-6xl opacity-10 animate-float hidden lg:block">❓</div>
-        <div className="absolute bottom-10 left-10 text-5xl opacity-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>🐾</div>
+        <HelpCircle size={80} className="absolute top-10 right-10 text-serenade opacity-10 animate-float hidden lg:block" strokeWidth={1.5} />
+        <PawPrint size={64} className="absolute bottom-10 left-10 text-serenade opacity-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }} strokeWidth={1.5} />
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection animation="fade-up">
@@ -115,7 +115,7 @@ export default function FAQPage() {
             </h1>
             
             <p className="text-serenade/80 text-lg md:text-xl max-w-2xl mx-auto">
-              Trova risposte alle domande più comuni su PetHero, sia per i proprietari di animali che per i professionisti.
+              Trova risposte alle domande più comuni su PetLife, sia per i proprietari di animali che per i professionisti.
             </p>
           </AnimatedSection>
         </div>
@@ -184,7 +184,7 @@ export default function FAQPage() {
             Contattaci e ti risponderemo il prima possibile.
           </p>
           <a
-            href="mailto:supporto@pethero.it"
+            href="mailto:supporto@petlife.it"
             className="inline-flex items-center gap-2 px-8 py-4 bg-golden text-coal font-semibold rounded-full hover:bg-golden-light transition-colors"
           >
             <Mail size={18} />

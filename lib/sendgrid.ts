@@ -49,15 +49,15 @@ export async function sendNewContactEmail(
 ): Promise<SendGridResponse> {
   return sendEmail({
     to: professionalEmail,
-    subject: `🐕 Nuovo contatto su PetHero da ${contactData.name}`,
+    subject: `🐕 Nuovo contatto su PetLife da ${contactData.name}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #ee7712, #df5d08); padding: 20px; text-align: center;">
-          <h1 style="color: white; margin: 0;">🐕 PetHero</h1>
+          <h1 style="color: white; margin: 0;">🐕 PetLife</h1>
         </div>
         <div style="padding: 30px; background: #f9f9f9;">
           <h2 style="color: #333;">Ciao ${professionalName}!</h2>
-          <p style="color: #666;">Hai ricevuto un nuovo contatto sulla tua pagina PetHero.</p>
+          <p style="color: #666;">Hai ricevuto un nuovo contatto sulla tua pagina PetLife.</p>
           
           <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
             <h3 style="color: #ee7712; margin-top: 0;">Dettagli Contatto</h3>
@@ -74,8 +74,8 @@ export async function sendNewContactEmail(
           </a>
         </div>
         <div style="padding: 20px; text-align: center; color: #999; font-size: 12px;">
-          <p>Questa email è stata inviata da PetHero</p>
-          <p>© ${new Date().getFullYear()} PetHero - Tutti i diritti riservati</p>
+          <p>Questa email è stata inviata da PetLife</p>
+          <p>© ${new Date().getFullYear()} PetLife - Tutti i diritti riservati</p>
         </div>
       </div>
     `,
@@ -95,11 +95,11 @@ export async function sendBookingConfirmationEmail(
 ): Promise<SendGridResponse> {
   return sendEmail({
     to: customerEmail,
-    subject: `✅ Richiesta inviata a ${bookingData.professionalName} - PetHero`,
+    subject: `✅ Richiesta inviata a ${bookingData.professionalName} - PetLife`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #ee7712, #df5d08); padding: 20px; text-align: center;">
-          <h1 style="color: white; margin: 0;">🐕 PetHero</h1>
+          <h1 style="color: white; margin: 0;">🐕 PetLife</h1>
         </div>
         <div style="padding: 30px; background: #f9f9f9;">
           <h2 style="color: #333;">Ciao ${customerName}!</h2>
@@ -122,8 +122,8 @@ export async function sendBookingConfirmationEmail(
           </a>
         </div>
         <div style="padding: 20px; text-align: center; color: #999; font-size: 12px;">
-          <p>Questa email è stata inviata da PetHero</p>
-          <p>© ${new Date().getFullYear()} PetHero - Tutti i diritti riservati</p>
+          <p>Questa email è stata inviata da PetLife</p>
+          <p>© ${new Date().getFullYear()} PetLife - Tutti i diritti riservati</p>
         </div>
       </div>
     `,
@@ -140,18 +140,18 @@ export async function sendWelcomeEmail(
   
   return sendEmail({
     to: email,
-    subject: `🎉 Benvenuto su PetHero, ${name}!`,
+    subject: `🎉 Benvenuto su PetLife, ${name}!`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #ee7712, #df5d08); padding: 20px; text-align: center;">
-          <h1 style="color: white; margin: 0;">🐕 PetHero</h1>
+          <h1 style="color: white; margin: 0;">🐕 PetLife</h1>
         </div>
         <div style="padding: 30px; background: #f9f9f9;">
           <h2 style="color: #333;">Benvenuto ${name}! 🎉</h2>
           <p style="color: #666;">
             ${isProfessional 
-              ? 'Grazie per esserti registrato come professionista su PetHero!'
-              : 'Grazie per esserti registrato su PetHero!'
+              ? 'Grazie per esserti registrato come professionista su PetLife!'
+              : 'Grazie per esserti registrato su PetLife!'
             }
           </p>
           
@@ -180,8 +180,8 @@ export async function sendWelcomeEmail(
           </a>
         </div>
         <div style="padding: 20px; text-align: center; color: #999; font-size: 12px;">
-          <p>Questa email è stata inviata da PetHero</p>
-          <p>© ${new Date().getFullYear()} PetHero - Tutti i diritti riservati</p>
+          <p>Questa email è stata inviata da PetLife</p>
+          <p>© ${new Date().getFullYear()} PetLife - Tutti i diritti riservati</p>
         </div>
       </div>
     `,
@@ -192,5 +192,5 @@ export async function sendWelcomeEmail(
 export const sendgridConfig = {
   apiKey: process.env.SENDGRID_API_KEY || 'SG.mock_api_key',
   fromEmail: process.env.SENDGRID_FROM_EMAIL || 'noreply@doghero.it',
-  fromName: 'PetHero',
+  fromName: 'PetLife',
 }

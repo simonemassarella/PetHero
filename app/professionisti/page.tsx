@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Check, Star, Users, TrendingUp, Shield, Zap, Award, ArrowRight, Briefcase } from 'lucide-react'
+import { Check, Star, Users, TrendingUp, Shield, Zap, Award, ArrowRight, Briefcase, PawPrint, Sparkles, Rocket, User } from 'lucide-react'
 import { subscriptionPlans } from '@/data/subscriptions'
 import { formatPrice } from '@/lib/utils'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -21,7 +21,7 @@ export default function ProfessionistiPage() {
       role: 'Pet Sitter',
       city: 'Gaeta',
       avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-      text: 'Da quando sono su PetHero ho triplicato i miei clienti. La piattaforma è fantastica!',
+      text: 'Da quando sono su PetLife ho triplicato i miei clienti. La piattaforma è fantastica!',
       rating: 5,
     },
     {
@@ -39,8 +39,8 @@ export default function ProfessionistiPage() {
       {/* Hero - Groomer Style */}
       <section className="bg-violet py-16 md:py-24 relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 text-6xl opacity-10 animate-float hidden lg:block">💼</div>
-        <div className="absolute bottom-10 left-10 text-5xl opacity-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>🐾</div>
+        <Briefcase size={80} className="absolute top-10 right-10 text-serenade opacity-10 animate-float hidden lg:block" strokeWidth={1.5} />
+        <PawPrint size={64} className="absolute bottom-10 left-10 text-serenade opacity-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }} strokeWidth={1.5} />
         <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-golden/10 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -88,11 +88,11 @@ export default function ProfessionistiPage() {
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 bg-violet/10 text-violet px-4 py-2 rounded-full text-sm font-medium mb-4">
-                ✨ Vantaggi
+                <Sparkles size={16} className="inline" /> Vantaggi
               </span>
               <h2 className="text-4xl md:text-5xl font-display uppercase">
                 <span className="text-violet">PERCHÉ SCEGLIERE </span>
-                <span className="text-teal">PETHERO?</span>
+                <span className="text-violet">PET</span><span className="text-golden">LIFE?</span>
               </h2>
               <p className="text-coal text-lg mt-4 max-w-2xl mx-auto">
                 Tutto ciò di cui hai bisogno per far crescere la tua attività nel settore pet
@@ -122,7 +122,7 @@ export default function ProfessionistiPage() {
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 bg-teal/10 text-teal px-4 py-2 rounded-full text-sm font-medium mb-4">
-                🚀 Come Funziona
+                <Rocket size={16} /> Come Funziona
               </span>
               <h2 className="text-4xl md:text-5xl font-display uppercase">
                 <span className="text-violet">INIZIA IN </span>
@@ -133,16 +133,18 @@ export default function ProfessionistiPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { step: '1', title: 'Crea il Profilo', description: 'Registrati gratuitamente e completa il tuo profilo con foto, servizi e prezzi', icon: '📝' },
-              { step: '2', title: 'Ricevi Contatti', description: 'I proprietari di animali ti troveranno e ti contatteranno direttamente', icon: '📱' },
-              { step: '3', title: 'Fai Crescere', description: 'Gestisci prenotazioni, ricevi recensioni e aumenta la tua visibilità', icon: '📈' },
+              { step: '1', title: 'Crea il Profilo', description: 'Registrati gratuitamente e completa il tuo profilo con foto, servizi e prezzi', Icon: User },
+              { step: '2', title: 'Ricevi Contatti', description: 'I proprietari di animali ti troveranno e ti contatteranno direttamente', Icon: Users },
+              { step: '3', title: 'Fai Crescere', description: 'Gestisci prenotazioni, ricevi recensioni e aumenta la tua visibilità', Icon: TrendingUp },
             ].map((item, i) => (
               <AnimatedSection key={item.step} animation="fade-up" delay={i * 0.15}>
                 <div className="bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 relative">
                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 bg-violet text-serenade rounded-full flex items-center justify-center font-display text-xl">
                     {item.step}
                   </div>
-                  <div className="text-5xl mb-6 mt-4">{item.icon}</div>
+                  <div className="mb-6 mt-4 flex justify-center">
+                    <item.Icon size={56} className="text-violet" strokeWidth={1.5} />
+                  </div>
                   <h3 className="font-display text-2xl text-violet uppercase mb-3">{item.title}</h3>
                   <p className="text-coal">{item.description}</p>
                 </div>
@@ -273,8 +275,8 @@ export default function ProfessionistiPage() {
 
       {/* CTA - Groomer Style */}
       <section className="py-20 bg-violet relative overflow-hidden">
-        <div className="absolute top-10 left-10 text-6xl opacity-10 animate-float">🚀</div>
-        <div className="absolute bottom-10 right-10 text-5xl opacity-10 animate-float" style={{ animationDelay: '1s' }}>🐾</div>
+        <Rocket size={80} className="absolute top-10 left-10 text-serenade opacity-10 animate-float" strokeWidth={1.5} />
+        <PawPrint size={64} className="absolute bottom-10 right-10 text-serenade opacity-10 animate-float" style={{ animationDelay: '1s' }} strokeWidth={1.5} />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection animation="fade-up">
@@ -283,7 +285,7 @@ export default function ProfessionistiPage() {
               <span className="text-golden">INIZIARE?</span>
             </h2>
             <p className="text-serenade/80 text-xl mb-10 max-w-2xl mx-auto">
-              Unisciti a centinaia di professionisti che hanno già scelto PetHero nel Lazio. La registrazione è gratuita!
+              Unisciti a centinaia di professionisti che hanno già scelto PetLife nel Lazio. La registrazione è gratuita!
             </p>
             <Link
               href="/signup?role=professional"

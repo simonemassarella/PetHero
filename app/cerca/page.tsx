@@ -6,7 +6,7 @@ import { professionals, searchProfessionals, ServiceType, serviceTypeLabels, ser
 import CardProfessionista from '@/components/CardProfessionista'
 import Filters from '@/components/Filters'
 import AnimatedSection from '@/components/AnimatedSection'
-import { Search, MapPin, Filter, X } from 'lucide-react'
+import { Search, MapPin, Filter, X, PawPrint } from 'lucide-react'
 
 function CercaContent() {
   const searchParams = useSearchParams()
@@ -32,8 +32,8 @@ function CercaContent() {
       {/* Hero Header - Groomer Style */}
       <section className="bg-violet py-16 md:py-20 relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 text-6xl opacity-10 animate-float hidden lg:block">🔍</div>
-        <div className="absolute bottom-10 left-10 text-5xl opacity-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>🐾</div>
+        <Search size={80} className="absolute top-10 right-10 text-serenade opacity-10 animate-float hidden lg:block" strokeWidth={1.5} />
+        <PawPrint size={64} className="absolute bottom-10 left-10 text-serenade opacity-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }} strokeWidth={1.5} />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <AnimatedSection animation="fade-up">
@@ -172,7 +172,7 @@ export default function CercaPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-serenade flex items-center justify-center">
         <div className="text-center">
-          <div className="text-6xl mb-4 animate-bounce">🐾</div>
+          <PawPrint size={64} className="text-violet mx-auto mb-4 animate-bounce" strokeWidth={2} />
           <p className="text-violet font-display text-xl">Caricamento...</p>
         </div>
       </div>

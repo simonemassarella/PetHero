@@ -46,81 +46,96 @@ const featuredProfessionals = professionals.slice(0, 3)
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Clean & Centered */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-serenade overflow-hidden px-6 py-20">
-        {/* Background Decorations */}
+      {/* Hero Section - Mobile-first design from Figma with animations */}
+      <section className="relative min-h-[100svh] flex flex-col items-center justify-center bg-serenade overflow-hidden px-4 sm:px-6 lg:px-8 pt-28 pb-20 sm:py-20">
+        {/* Background Decorations with animations */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 text-5xl md:text-7xl opacity-10 animate-float">🐾</div>
-          <div className="absolute bottom-32 right-10 text-4xl md:text-6xl opacity-10 animate-float" style={{ animationDelay: '1s' }}>🐾</div>
-          <div className="absolute top-1/3 right-[15%] w-64 h-64 bg-violet/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-[10%] w-48 h-48 bg-golden/10 rounded-full blur-3xl" />
+          {/* Animated Paw prints */}
+          <PawPrint size={48} className="absolute top-20 left-4 text-violet opacity-10 animate-float" strokeWidth={1.5} />
+          <PawPrint size={40} className="absolute bottom-20 right-4 text-violet opacity-10 animate-float" style={{ animationDelay: '1s' }} strokeWidth={1.5} />
+          <PawPrint size={56} className="absolute top-[40%] right-[5%] text-violet opacity-10 animate-float hidden sm:block" style={{ animationDelay: '0.5s' }} strokeWidth={1.5} />
+          <PawPrint size={48} className="absolute bottom-[30%] left-[8%] text-violet opacity-10 animate-float hidden sm:block" style={{ animationDelay: '1.5s' }} strokeWidth={1.5} />
+          {/* Animated Gradient blurs */}
+          <div className="absolute top-56 right-10 w-40 h-40 bg-violet/10 rounded-full blur-[32px] animate-pulse-slow" />
+          <div className="absolute bottom-40 left-5 w-32 h-32 bg-golden/10 rounded-full blur-[32px] animate-pulse-slow" style={{ animationDelay: '1s' }} />
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
+        <div className="relative z-10 w-full max-w-6xl mx-auto text-center flex flex-col items-center gap-4">
           
-          {/* Main Title - GRANDE e CENTRATO */}
-          <h1 className="font-display uppercase leading-[0.9] mb-6 md:mb-8 animate-fade-in-up">
-            <span className="block text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[8rem] text-violet">
+          {/* Main Title with staggered animation */}
+          <h1 className="font-display uppercase leading-[0.85]">
+            <span className="block text-[4.9rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] text-violet leading-[0.85] animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               IL MIGLIOR
             </span>
-            <span className="block text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[8rem] text-violet">
+            <span className="block text-[4.9rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] text-violet leading-[0.85] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               PET CARE
             </span>
-            <span className="block text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5rem] mt-2">
+            <span className="block text-[3.3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6.5rem] xl:text-[8rem] leading-[0.85] mt-1 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <span className="text-violet">PER IL TUO </span>
-              <span className="text-teal">AMICO</span>
+              <span className="text-teal animate-pulse-slow">AMICO</span>
             </span>
           </h1>
 
-          {/* Sottotitolo / Payoff - MOLTO GRANDE */}
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-coal font-semibold mb-10 md:mb-12 max-w-3xl mx-auto animate-fade-in-up leading-tight" style={{ animationDelay: '0.2s' }}>
+          {/* Payoff with animation */}
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-coal font-medium max-w-xs sm:max-w-lg md:max-w-2xl mx-auto animate-fade-in-up text-center" style={{ animationDelay: '0.4s' }}>
             Chi si prende cura del tuo{' '}
-            <span className="text-violet font-bold">pet</span>, come faresti{' '}
-            <span className="text-golden font-bold">tu</span>.
+            <span className="text-violet font-bold relative inline-block hover:scale-110 transition-transform cursor-default">
+              pet
+              <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-violet/40 rounded-full" />
+            </span>
+            , come<br className="sm:hidden" />{' '}
+            faresti{' '}
+            <span className="text-golden font-bold relative inline-block hover:scale-110 transition-transform cursor-default">
+              tu
+              <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-golden/50 rounded-full" />
+            </span>
+            .
           </p>
 
-          {/* CTA Button - SEMPRE VISIBILE */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          {/* CTA Button with shimmer effect */}
+          <div className="animate-fade-in-up pt-4" style={{ animationDelay: '0.5s' }}>
             <Link 
               href="/cerca" 
-              className="inline-flex items-center gap-3 bg-golden text-coal px-10 py-5 rounded-full font-bold text-lg md:text-xl border-b-4 border-violet shadow-xl hover:shadow-2xl hover:bg-golden-light hover:-translate-y-1 transition-all duration-300"
+              className="group relative inline-flex items-center gap-2 bg-golden text-coal px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl border-b-4 border-violet shadow-xl hover:shadow-2xl hover:bg-golden-light hover:-translate-y-2 hover:scale-105 transition-all duration-300 overflow-hidden"
             >
-              Trova Professionista
-              <ArrowRight size={24} strokeWidth={2.5} />
+              {/* Shimmer Effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <span className="relative">Trova Professionista</span>
+              <ArrowRight size={20} strokeWidth={2.5} className="relative group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* Happy Paws Badge - sotto CTA */}
-          <div className="mt-10 md:mt-12 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <div className="flex items-center gap-3 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-md">
-              <div className="relative h-10 w-24">
-                <div className="absolute left-0 top-0 w-10 h-10 rounded-full overflow-hidden border-3 border-violet">
+          {/* Happy Paws Badge with hover effects */}
+          <div className="pt-4 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-3 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-default group">
+              <div className="relative h-8 w-20">
+                <div className="absolute left-0 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-10">
                   <Image src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-5 top-0 w-10 h-10 rounded-full overflow-hidden border-3 border-violet">
+                <div className="absolute left-4 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-20" style={{ transitionDelay: '50ms' }}>
                   <Image src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-10 top-0 w-10 h-10 rounded-full overflow-hidden border-3 border-violet">
+                <div className="absolute left-8 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-30" style={{ transitionDelay: '100ms' }}>
                   <Image src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=100" alt="Pet" fill className="object-cover" />
                 </div>
               </div>
-              <span className="text-coal text-sm md:text-base font-semibold">
+              <span className="text-coal text-xs font-semibold whitespace-nowrap">
                 <AnimatedCounter end={2500} duration={2000} suffix="+ Happy Paws" />
               </span>
             </div>
           </div>
         </div>
 
-        {/* Social Icons - Desktop only */}
-        <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4">
-          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all shadow-md">
+        {/* Social Icons - Desktop only with animations */}
+        <div className="absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4">
+          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 hover:rotate-12 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
             <Facebook size={20} strokeWidth={2.5} />
           </a>
-          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all shadow-md">
+          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 hover:rotate-12 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
             <Instagram size={20} strokeWidth={2.5} />
           </a>
-          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all shadow-md">
+          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 hover:rotate-12 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
             <Twitter size={20} strokeWidth={2.5} />
           </a>
         </div>
@@ -157,13 +172,13 @@ export default function Home() {
               </span>
               <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-display uppercase tracking-tight leading-[0.9] mb-10">
                 <span className="text-violet">CONOSCI</span><br />
-                <span className="text-teal">PETHERO</span>
+                <span className="text-violet">PET</span><span className="text-golden">LIFE</span>
               </h2>
               <p className="text-xl md:text-2xl text-coal leading-relaxed mb-6">
-                Ciao! Siamo <span className="text-violet font-semibold">PetHero</span>, il nuovo migliore amico del tuo pet. Crediamo nelle <span className="text-golden font-semibold">coccole soffici</span>, nelle code felici e nel far sembrare i tuoi animali assolutamente favolosi.
+                Ciao! Siamo <span className="text-violet font-semibold">Pet</span><span className="text-golden font-semibold">Life</span>, il nuovo migliore amico del tuo pet. Crediamo nelle <span className="text-golden font-semibold">coccole soffici</span>, nelle code felici e nel far sembrare i tuoi animali assolutamente favolosi.
               </p>
               <p className="text-lg text-coal-light mb-12 leading-relaxed">
-                Come amanti degli animali, PetHero è nato da una visione semplice ma profonda: offrire una piattaforma dove i pet non sono solo clienti ma <span className="text-teal font-medium">membri preziosi della famiglia</span>. La nostra missione è unire competenza e amore, garantendo cure personalizzate per ogni pet.
+                Come amanti degli animali, PetLife è nato da una visione semplice ma profonda: offrire una piattaforma dove i pet non sono solo clienti ma <span className="text-teal font-medium">membri preziosi della famiglia</span>. La nostra missione è unire competenza e amore, garantendo cure personalizzate per ogni pet.
               </p>
               <Link href="/professionisti" className="group inline-flex items-center gap-3 bg-golden text-coal px-8 py-4 rounded-2xl font-bold text-lg border-b-4 border-violet hover:bg-golden-light transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Scopri di Più
@@ -342,7 +357,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { name: 'Marco B.', city: 'Gaeta', title: 'Il Nostro Labrador Adora!', text: 'Ho trovato una dog sitter fantastica per il mio Labrador. Il servizio è stato impeccabile e il mio cane era felicissimo! Torneremo sicuramente!' },
-              { name: 'Giulia R.', city: 'Formia', title: 'Vacanze Perfette!', text: 'La pensione che ho trovato su PetHero è stata perfetta per le vacanze. Il mio cane è tornato rilassato e coccolato. Consigliatissimo!' },
+              { name: 'Giulia R.', city: 'Formia', title: 'Vacanze Perfette!', text: 'La pensione che ho trovato su PetLife è stata perfetta per le vacanze. Il mio cane è tornato rilassato e coccolato. Consigliatissimo!' },
               { name: 'Andrea M.', city: 'Terracina', title: 'Progressi Incredibili!', text: 'Grazie all\'educatore trovato qui, il mio cane ha fatto progressi incredibili. Professionalità e competenza al top!' },
             ].map((testimonial, i) => (
               <AnimatedSection key={i} animation="slide-left" delay={i * 150}>
@@ -408,10 +423,10 @@ export default function Home() {
       <section className="py-32 bg-violet relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 text-9xl animate-float">🐕</div>
-          <div className="absolute bottom-10 right-10 text-9xl animate-bounce-slow">🐾</div>
-          <div className="absolute top-1/2 left-1/4 text-7xl animate-pulse-slow">🦴</div>
-          <div className="absolute top-1/3 right-1/4 text-6xl animate-wiggle-slow">🎾</div>
+          <Dog size={120} className="absolute top-10 left-10 text-serenade animate-float" strokeWidth={1} />
+          <PawPrint size={120} className="absolute bottom-10 right-10 text-serenade animate-bounce-slow" strokeWidth={1} />
+          <Heart size={80} className="absolute top-1/2 left-1/4 text-serenade animate-pulse-slow" strokeWidth={1} />
+          <Star size={70} className="absolute top-1/3 right-1/4 text-serenade animate-wiggle-slow" strokeWidth={1} />
         </div>
 
         <AnimatedSection animation="scale" className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -451,9 +466,9 @@ export default function Home() {
 
           <div className="space-y-4">
             {[
-              { q: 'Come funziona PetHero?', a: 'Cerca professionisti nella tua zona, confronta profili e recensioni, e contatta direttamente chi preferisci. È semplice e veloce!' },
+              { q: 'Come funziona PetLife?', a: 'Cerca professionisti nella tua zona, confronta profili e recensioni, e contatta direttamente chi preferisci. È semplice e veloce!' },
               { q: 'I professionisti sono verificati?', a: 'Sì, tutti i professionisti vengono verificati prima di essere pubblicati sulla piattaforma. La sicurezza del tuo pet è la nostra priorità.' },
-              { q: 'Quanto costa usare PetHero?', a: 'Per i proprietari di animali è completamente gratuito. I professionisti possono scegliere tra diversi piani di abbonamento.' },
+              { q: 'Quanto costa usare PetLife?', a: 'Per i proprietari di animali è completamente gratuito. I professionisti possono scegliere tra diversi piani di abbonamento.' },
               { q: 'Cosa devo fare prima di portare il mio pet?', a: 'Assicurati che il tuo pet sia rilassato e abbia fatto una breve passeggiata. Porta con te eventuali documenti sanitari e informazioni utili.' },
             ].map((faq, i) => (
               <AnimatedSection key={i} animation="slide-right" delay={i * 100}>

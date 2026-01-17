@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Mail, Lock, Eye, EyeOff, LogIn } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, PawPrint } from 'lucide-react'
 import { authenticateUser } from '@/data/users'
 
 export default function LoginPage() {
@@ -47,8 +47,8 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 justify-center">
-            <span className="text-4xl">🐾</span>
-            <span className="font-display text-3xl uppercase text-violet">PetHero</span>
+            <PawPrint size={36} className="text-violet" strokeWidth={2.5} />
+            <span className="font-display text-3xl uppercase"><span className="text-violet">Pet</span><span className="text-golden">Life</span></span>
           </Link>
           <h1 className="mt-8 heading-2">
             Bentornato!
@@ -133,7 +133,7 @@ export default function LoginPage() {
           {/* Demo Credentials */}
           <div className="mt-6 p-4 bg-violet/10 rounded-xl">
             <p className="text-sm text-violet font-semibold mb-2">Demo Credentials:</p>
-            <p className="text-xs text-coal">Email: demo@pethero.it</p>
+            <p className="text-xs text-coal">Email: demo@petlife.it</p>
             <p className="text-xs text-coal">Password: demo123</p>
           </div>
 

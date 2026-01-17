@@ -2,10 +2,20 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { Menu, X, Phone, PawPrint } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/cerca', label: 'Cerca' },
+    { href: '/professionisti', label: 'Servizi' },
+    { href: '/faq', label: 'FAQ' },
+    { href: '/login', label: 'Accedi' },
+  ]
 
   return (
     <nav className="sticky top-0 z-50">
@@ -15,19 +25,27 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl">🐾</span>
-              <span className="font-display text-2xl uppercase text-violet tracking-tight">
-                PetHero
+              <PawPrint size={28} className="text-violet" strokeWidth={2.5} />
+              <span className="font-display text-2xl uppercase tracking-tight">
+                <span className="text-violet">Pet</span><span className="text-golden">Life</span>
               </span>
             </Link>
 
             {/* Desktop Navigation - Figma Style */}
             <div className="hidden md:flex items-center gap-5">
-              <Link href="/" className="nav-link-active">Home</Link>
-              <Link href="/cerca" className="nav-link">Cerca</Link>
-              <Link href="/professionisti" className="nav-link">Servizi</Link>
-              <Link href="/faq" className="nav-link">FAQ</Link>
-              <Link href="/login" className="nav-link">Accedi</Link>
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.href}
+                  href={link.href} 
+                  className={`font-display text-lg uppercase tracking-tight transition-colors ${
+                    pathname === link.href 
+                      ? 'text-golden' 
+                      : 'text-violet hover:text-golden'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
 
             {/* CTA Button - Figma Style */}
@@ -54,11 +72,20 @@ export default function Navbar() {
           {isOpen && (
             <div className="md:hidden py-6 border-t border-violet/20 mt-2 animate-fade-in">
               <div className="flex flex-col gap-2">
-                <Link href="/" className="nav-link-active px-4 py-3" onClick={() => setIsOpen(false)}>Home</Link>
-                <Link href="/cerca" className="nav-link px-4 py-3" onClick={() => setIsOpen(false)}>Cerca</Link>
-                <Link href="/professionisti" className="nav-link px-4 py-3" onClick={() => setIsOpen(false)}>Servizi</Link>
-                <Link href="/faq" className="nav-link px-4 py-3" onClick={() => setIsOpen(false)}>FAQ</Link>
-                <Link href="/login" className="nav-link px-4 py-3" onClick={() => setIsOpen(false)}>Accedi</Link>
+                {navLinks.map((link) => (
+                  <Link 
+                    key={link.href}
+                    href={link.href} 
+                    className={`font-display text-lg uppercase tracking-tight px-4 py-3 transition-colors ${
+                      pathname === link.href 
+                        ? 'text-golden' 
+                        : 'text-violet hover:text-golden'
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
                 <Link 
                   href="tel:+390771000000" 
                   className="mt-4 mx-4 flex items-center justify-center gap-2 bg-violet text-serenade px-5 py-3 rounded-full font-display text-lg uppercase"

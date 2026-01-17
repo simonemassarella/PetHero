@@ -19,12 +19,12 @@ const passionOne = Passion_One({
 })
 
 export const metadata: Metadata = {
-  title: 'PetHero - Trova il Professionista Perfetto per il Tuo Cane',
-  description: 'Connettiti con dog sitter, pensioni, educatori e centri cinofili di fiducia nella provincia di Latina. Gaeta, Formia, Terracina, Sperlonga, Fondi.',
-  keywords: 'dog sitter, pensione cani, educatore cinofilo, centro cinofilo, Latina, Gaeta, Formia, Terracina',
+  title: 'PetLife - Trova il Professionista Perfetto per il Tuo Pet',
+  description: 'Connettiti con pet sitter, pensioni, toelettatori e veterinari di fiducia nel Lazio. Roma, Latina, Frosinone, Rieti, Viterbo.',
+  keywords: 'pet sitter, pensione animali, toelettatura, veterinario, Lazio, Roma, Latina',
   openGraph: {
-    title: 'PetHero - Trova il Professionista Perfetto per il Tuo Cane',
-    description: 'La piattaforma che connette proprietari di cani con professionisti locali di fiducia.',
+    title: 'PetLife - Trova il Professionista Perfetto per il Tuo Pet',
+    description: 'La piattaforma che connette proprietari di animali con professionisti locali di fiducia.',
     type: 'website',
     locale: 'it_IT',
   },

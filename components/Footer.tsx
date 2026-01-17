@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Facebook, Instagram, Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { Facebook, Instagram, Mail, Phone, MapPin, Clock, PawPrint } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -23,9 +23,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-8">
-              <span className="text-4xl">🐾</span>
-              <span className="font-display text-3xl uppercase text-serenade">
-                PetHero
+              <PawPrint size={36} className="text-golden" strokeWidth={2.5} />
+              <span className="font-display text-3xl uppercase">
+                <span className="text-serenade">Pet</span><span className="text-golden">Life</span>
               </span>
             </Link>
             <p className="text-serenade/70 mb-8 leading-relaxed text-lg">
