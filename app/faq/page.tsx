@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ChevronDown, User, Briefcase, Mail, ArrowRight } from 'lucide-react'
+import { ChevronDown, User, Briefcase, Mail, ArrowRight, HelpCircle } from 'lucide-react'
+import AnimatedSection from '@/components/AnimatedSection'
 
 interface FAQItem {
   question: string
@@ -92,26 +93,33 @@ export default function FAQPage() {
   const [activeTab, setActiveTab] = useState<'clients' | 'professionals'>('clients')
 
   return (
-    <div className="min-h-screen bg-serenade">
-      {/* Header */}
-      <div className="bg-violet">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-serenade/70 hover:text-serenade transition-colors mb-8"
-          >
-            <ArrowLeft size={20} />
-            Torna alla Home
-          </Link>
-          <p className="text-golden font-display uppercase tracking-widest text-sm mb-4">FAQ</p>
-          <h1 className="text-4xl md:text-5xl font-display uppercase text-serenade mb-4">
-            Domande Pelose<br />Anticipate!
-          </h1>
-          <p className="text-serenade/80 max-w-2xl mx-auto text-lg">
-            Trova risposte alle domande più comuni su PetHero, sia per i proprietari di cani che per i professionisti.
-          </p>
+    <div className="min-h-screen bg-serenade pt-24">
+      {/* Header - Groomer Style */}
+      <section className="bg-violet py-16 md:py-20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-10 right-10 text-6xl opacity-10 animate-float hidden lg:block">❓</div>
+        <div className="absolute bottom-10 left-10 text-5xl opacity-10 animate-float hidden lg:block" style={{ animationDelay: '1s' }}>🐾</div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <AnimatedSection animation="fade-up">
+            {/* Badge */}
+            <span className="inline-flex items-center gap-2 bg-golden/20 text-golden px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <HelpCircle size={16} />
+              FAQ
+            </span>
+            
+            {/* Title */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display uppercase leading-tight mb-6">
+              <span className="text-serenade">DOMANDE </span>
+              <span className="text-golden">PELOSE</span>
+            </h1>
+            
+            <p className="text-serenade/80 text-lg md:text-xl max-w-2xl mx-auto">
+              Trova risposte alle domande più comuni su PetHero, sia per i proprietari di animali che per i professionisti.
+            </p>
+          </AnimatedSection>
         </div>
-      </div>
+      </section>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Tabs */}
