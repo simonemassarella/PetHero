@@ -46,104 +46,84 @@ const featuredProfessionals = professionals.slice(0, 3)
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Super Cool Animated */}
-      <section className="relative min-h-[100svh] flex items-center justify-center bg-serenade overflow-hidden">
-        {/* Animated Background Particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Floating Paw Prints - Visible on all screens */}
-          <div className="absolute top-[15%] left-[5%] text-4xl sm:text-5xl md:text-6xl opacity-10 animate-float" style={{ animationDelay: '0s' }}>🐾</div>
-          <div className="absolute top-[25%] right-[8%] text-3xl sm:text-4xl md:text-5xl opacity-10 animate-float" style={{ animationDelay: '0.5s' }}>🐾</div>
-          <div className="absolute bottom-[25%] left-[10%] text-3xl sm:text-4xl opacity-10 animate-float" style={{ animationDelay: '1s' }}>🐾</div>
-          <div className="absolute bottom-[15%] right-[15%] text-4xl sm:text-5xl md:text-7xl opacity-10 animate-float" style={{ animationDelay: '1.5s' }}>🐾</div>
+      {/* Hero Section - Clean & Centered */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center bg-serenade overflow-hidden px-6 py-20">
+        {/* Background Decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 text-5xl md:text-7xl opacity-10 animate-float">🐾</div>
+          <div className="absolute bottom-32 right-10 text-4xl md:text-6xl opacity-10 animate-float" style={{ animationDelay: '1s' }}>🐾</div>
+          <div className="absolute top-1/3 right-[15%] w-64 h-64 bg-violet/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-[10%] w-48 h-48 bg-golden/10 rounded-full blur-3xl" />
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
           
-          {/* Gradient Orbs */}
-          <div className="absolute top-0 left-0 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-gradient-to-br from-violet/20 to-transparent rounded-full blur-3xl animate-pulse-slow" />
-          <div className="absolute bottom-0 right-0 w-56 sm:w-72 md:w-80 h-56 sm:h-72 md:h-80 bg-gradient-to-tl from-golden/20 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
-        </div>
+          {/* Main Title - GRANDE e CENTRATO */}
+          <h1 className="font-display uppercase leading-[0.9] mb-6 md:mb-8 animate-fade-in-up">
+            <span className="block text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[8rem] text-violet">
+              IL MIGLIOR
+            </span>
+            <span className="block text-[3rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[8rem] text-violet">
+              PET CARE
+            </span>
+            <span className="block text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] xl:text-[5rem] mt-2">
+              <span className="text-violet">PER IL TUO </span>
+              <span className="text-teal">AMICO</span>
+            </span>
+          </h1>
 
-        {/* Social Media Icons - Left Side */}
-        <div className="absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-3 lg:gap-4 z-10">
-          <a href="#" className="w-10 h-10 lg:w-11 lg:h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-            <Facebook size={18} strokeWidth={2.5} />
-          </a>
-          <a href="#" className="w-10 h-10 lg:w-11 lg:h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <Instagram size={18} strokeWidth={2.5} />
-          </a>
-          <a href="#" className="w-10 h-10 lg:w-11 lg:h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-            <Twitter size={18} strokeWidth={2.5} />
-          </a>
-        </div>
+          {/* Sottotitolo */}
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-coal font-medium mb-10 md:mb-12 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            Chi si prende cura del tuo{' '}
+            <span className="text-violet font-bold">pet</span>, come faresti{' '}
+            <span className="text-golden font-bold">tu</span>.
+          </p>
 
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-20 md:py-24 relative z-10">
-          {/* Happy Paws Badge */}
-          <div className="flex justify-center mb-8 sm:mb-10 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="flex items-center gap-2 sm:gap-3 bg-white/60 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full shadow-lg">
-              {/* Stacked Pet Images */}
-              <div className="relative h-[36px] sm:h-[44px] md:h-[52px] w-[90px] sm:w-[110px] md:w-[130px]">
-                <div className="absolute left-0 top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
+          {/* CTA Button - SEMPRE VISIBILE */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <Link 
+              href="/cerca" 
+              className="inline-flex items-center gap-3 bg-golden text-coal px-10 py-5 rounded-full font-bold text-lg md:text-xl border-b-4 border-violet shadow-xl hover:shadow-2xl hover:bg-golden-light hover:-translate-y-1 transition-all duration-300"
+            >
+              Trova Professionista
+              <ArrowRight size={24} strokeWidth={2.5} />
+            </Link>
+          </div>
+
+          {/* Happy Paws Badge - sotto CTA */}
+          <div className="mt-10 md:mt-12 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="flex items-center gap-3 bg-white/70 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-md">
+              <div className="relative h-10 w-24">
+                <div className="absolute left-0 top-0 w-10 h-10 rounded-full overflow-hidden border-3 border-violet">
                   <Image src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-[18px] sm:left-[22px] md:left-[26px] top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
+                <div className="absolute left-5 top-0 w-10 h-10 rounded-full overflow-hidden border-3 border-violet">
                   <Image src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-[36px] sm:left-[44px] md:left-[52px] top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
+                <div className="absolute left-10 top-0 w-10 h-10 rounded-full overflow-hidden border-3 border-violet">
                   <Image src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=100" alt="Pet" fill className="object-cover" />
                 </div>
-                <div className="absolute left-[54px] sm:left-[66px] md:left-[78px] top-0 w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[52px] md:h-[52px] rounded-full overflow-hidden border-[3px] sm:border-[4px] border-violet">
-                  <Image src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=100" alt="Pet" fill className="object-cover" />
-                </div>
               </div>
-              <span className="text-coal text-xs sm:text-sm md:text-base font-semibold whitespace-nowrap">
+              <span className="text-coal text-sm md:text-base font-semibold">
                 <AnimatedCounter end={2500} duration={2000} suffix="+ Happy Paws" />
               </span>
             </div>
           </div>
-
-          {/* Main Heading - ENORME su mobile */}
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h1 className="font-display uppercase leading-[0.85]">
-              <span className="block text-[3.5rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] text-violet animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                IL MIGLIOR
-              </span>
-              <span className="block text-[3.5rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] text-violet animate-fade-in-up" style={{ animationDelay: '0.35s' }}>
-                PET CARE
-              </span>
-              <span className="block text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[5.5rem] xl:text-[7rem] animate-fade-in-up mt-2" style={{ animationDelay: '0.5s' }}>
-                <span className="text-violet">PER IL TUO </span>
-                <span className="text-teal">AMICO</span>
-              </span>
-            </h1>
-          </div>
-
-          {/* Payoff - Grande e leggibile */}
-          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 animate-fade-in-up px-2" style={{ animationDelay: '0.7s' }}>
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-coal font-medium leading-relaxed">
-              Chi si prende cura del tuo{' '}
-              <span className="text-violet font-bold relative">
-                pet
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-violet/40 rounded-full" />
-              </span>
-              , come faresti{' '}
-              <span className="text-golden font-bold relative">
-                tu
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-golden/50 rounded-full" />
-              </span>
-              .
-            </p>
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-            <Link href="/cerca" className="group relative inline-flex items-center gap-2 sm:gap-3 bg-golden text-coal px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl border-b-4 border-violet hover:bg-golden-light transform hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl overflow-hidden">
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              <span className="relative">Trova Professionista</span>
-              <ArrowRight size={22} className="relative group-hover:translate-x-2 transition-transform" strokeWidth={2.5} />
-            </Link>
-          </div>
         </div>
 
-        {/* Decorative Dog */}
-        <div className="absolute bottom-6 right-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl opacity-20 animate-bounce hidden sm:block">🐕</div>
+        {/* Social Icons - Desktop only */}
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4">
+          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all shadow-md">
+            <Facebook size={20} strokeWidth={2.5} />
+          </a>
+          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all shadow-md">
+            <Instagram size={20} strokeWidth={2.5} />
+          </a>
+          <a href="#" className="w-11 h-11 bg-white rounded-full flex items-center justify-center text-violet hover:bg-golden hover:text-coal transition-all shadow-md">
+            <Twitter size={20} strokeWidth={2.5} />
+          </a>
+        </div>
       </section>
 
       {/* About Section - Groomer Style */}
