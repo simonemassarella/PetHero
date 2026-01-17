@@ -116,9 +116,9 @@ export default function Home() {
           </div>
 
           {/* Payoff with Highlight Animation - BIGGER on mobile */}
-          <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-10 md:mb-14 animate-fade-in-up px-2" style={{ animationDelay: '0.7s' }}>
-            <p className="text-[1.35rem] sm:text-2xl md:text-3xl lg:text-4xl text-coal font-medium tracking-[-0.01em] leading-relaxed sm:leading-snug">
-              Chi si prende cura del tuo <span className="text-violet font-bold relative inline-block hover:scale-110 transition-transform cursor-default">pet<span className="absolute -bottom-0.5 sm:-bottom-1 left-0 w-full h-0.5 sm:h-1 bg-violet/30 rounded-full animate-pulse-slow" /></span>, come faresti <span className="text-golden font-bold relative inline-block hover:scale-110 transition-transform cursor-default">tu<span className="absolute -bottom-0.5 sm:-bottom-1 left-0 w-full h-0.5 sm:h-1 bg-golden/50 rounded-full animate-pulse-slow" /></span>.
+          <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-12 md:mb-14 animate-fade-in-up px-4" style={{ animationDelay: '0.7s' }}>
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-coal font-semibold tracking-[-0.01em] leading-normal sm:leading-snug">
+              Chi si prende cura del tuo <span className="text-violet font-bold relative inline-block">pet<span className="absolute -bottom-1 left-0 w-full h-1 bg-violet/40 rounded-full" /></span>, come faresti <span className="text-golden font-bold relative inline-block">tu<span className="absolute -bottom-1 left-0 w-full h-1 bg-golden/50 rounded-full" /></span>.
             </p>
           </div>
 
