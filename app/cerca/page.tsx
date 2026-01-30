@@ -133,7 +133,6 @@ function CercaContent() {
               <AnimatedSection key={professional.id} animation="fade-up" delay={0.1 * (index % 6)}>
                 <CardProfessionista 
                   professional={professional}
-                  showContact
                 />
               </AnimatedSection>
             ))}

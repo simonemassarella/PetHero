@@ -1,13 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Mail, Lock, Eye, EyeOff, PawPrint } from 'lucide-react'
 import { authenticateUser } from '@/data/users'
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const returnUrl = searchParams.get('returnUrl')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -26,6 +28,12 @@ export default function LoginPage() {
     
     if (user) {
       localStorage.setItem('user', JSON.stringify(user))
+
+      if (returnUrl) {
+        router.push(returnUrl)
+        setLoading(false)
+        return
+      }
       
       if (user.role === 'professional') {
         router.push('/dashboard')
@@ -176,5 +184,20 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-serenade flex items-center justify-center py-12 px-4">
+        <div className="text-center">
+          <PawPrint size={64} className="text-violet mx-auto mb-4 animate-bounce" strokeWidth={2} />
+          <p className="text-violet font-display text-xl">Caricamento...</p>
+        </div>
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
   )
 }

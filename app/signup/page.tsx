@@ -10,6 +10,7 @@ function SignupContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const roleParam = searchParams.get('role')
+  const returnUrl = searchParams.get('returnUrl')
 
   const [formData, setFormData] = useState({
     name: '',
@@ -18,7 +19,7 @@ function SignupContent() {
     city: '',
     password: '',
     confirmPassword: '',
-    role: roleParam === 'professional' ? 'professional' : 'dog_owner',
+    role: roleParam === 'professional' ? 'professional' : 'pet_owner',
     acceptTerms: false,
   })
   const [showPassword, setShowPassword] = useState(false)
@@ -52,6 +53,12 @@ function SignupContent() {
     }
     
     localStorage.setItem('user', JSON.stringify(newUser))
+
+    if (returnUrl) {
+      router.push(returnUrl)
+      setLoading(false)
+      return
+    }
     
     if (formData.role === 'professional') {
       router.push('/dashboard?welcome=true')
@@ -85,7 +92,7 @@ function SignupContent() {
           <p className="mt-2 text-neutral-600">
             {formData.role === 'professional' 
               ? 'Registrati come professionista e raggiungi nuovi clienti'
-              : 'Registrati per trovare i migliori professionisti per il tuo cane'
+              : 'Registrati per trovare i migliori professionisti per il tuo pet (cani e gatti)'
             }
           </p>
         </div>
@@ -94,17 +101,18 @@ function SignupContent() {
         <div className="flex gap-4 mb-6">
           <button
             type="button"
-            onClick={() => setFormData(prev => ({ ...prev, role: 'dog_owner' }))}
+            onClick={() => setFormData(prev => ({ ...prev, role: 'pet_owner' }))}
             className={`flex-1 p-4 rounded-xl border-2 transition-all ${
-              formData.role === 'dog_owner'
+              formData.role === 'pet_owner'
                 ? 'border-primary-500 bg-primary-50'
                 : 'border-neutral-200 hover:border-neutral-300'
             }`}
           >
-            <Dog size={28} className="text-violet mx-auto mb-2" strokeWidth={2} />
-            <span className={`font-medium ${formData.role === 'dog_owner' ? 'text-primary-700' : 'text-neutral-700'}`}>
-              Proprietario
+            <PawPrint size={28} className="text-violet mx-auto mb-2" strokeWidth={2} />
+            <span className={`font-medium ${formData.role === 'pet_owner' ? 'text-primary-700' : 'text-neutral-700'}`}>
+              Cliente
             </span>
+            <p className="mt-1 text-xs text-neutral-500">Per trovare e prenotare</p>
           </button>
           <button
             type="button"
@@ -119,6 +127,7 @@ function SignupContent() {
             <span className={`font-medium ${formData.role === 'professional' ? 'text-primary-700' : 'text-neutral-700'}`}>
               Professionista
             </span>
+            <p className="mt-1 text-xs text-neutral-500">Per offrire i tuoi servizi</p>
           </button>
         </div>
 

@@ -17,10 +17,10 @@ const clientFAQs: FAQItem[] = [
   },
   {
     question: 'Come vengono gestiti i pagamenti?',
-    answer: 'Il pagamento avviene tramite PetLife. La piattaforma trattiene la fee (es. 3€) e il resto va al professionista tramite pagamento sicuro.',
+    answer: 'Il pagamento avviene tramite PetLife. Con il piano Base la piattaforma trattiene 3€ per ogni prenotazione e il resto va al professionista tramite pagamento sicuro.',
   },
   {
-    question: 'Come scelgo un Dog Sitter o una Pensione?',
+    question: 'Come scelgo un Pet Sitter o una Pensione?',
     answer: 'Puoi vedere profili, recensioni, servizi offerti, badge di verifica e contattare il professionista tramite la piattaforma.',
   },
   {
@@ -40,7 +40,7 @@ const professionalFAQs: FAQItem[] = [
   },
   {
     question: 'Devo pagare una fee a PetLife?',
-    answer: 'Sì, esiste una fee per lead (es. 3€ per contatto) e/o un abbonamento mensile per apparire sulla piattaforma.',
+    answer: 'Sì. Con Base la piattaforma trattiene 3€ per ogni prenotazione pagata dal cliente. Con PRO paghi 29€/mese e non ci sono commissioni sulle prenotazioni (0€).',
   },
   {
     question: 'Chi è responsabile se succede qualcosa all\'animale?',
@@ -157,7 +157,7 @@ export default function FAQPage() {
                   <User size={24} className="text-violet" />
                 </div>
                 <h2 className="heading-3">
-                  Domande per i Proprietari di Cani
+                  Domande per Proprietari di Pet (Cani e Gatti)
                 </h2>
               </div>
               <FAQAccordion items={clientFAQs} />
@@ -169,7 +169,7 @@ export default function FAQPage() {
                   <Briefcase size={24} className="text-violet" />
                 </div>
                 <h2 className="heading-3">
-                  Domande per Dog Sitter, Pensioni e Educatori
+                  Domande per Pet Sitter, Pensioni e Professionisti
                 </h2>
               </div>
               <FAQAccordion items={professionalFAQs} />

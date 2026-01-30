@@ -44,14 +44,9 @@ export default function CardProfessionista({ professional, showContact = false }
         </button>
 
         {/* Subscription Badge */}
-        {professional.subscriptionTier === 'premium' && (
-          <span className="absolute top-4 left-4 px-3 py-1.5 bg-violet text-serenade text-xs font-bold rounded-full">
-            Premium
-          </span>
-        )}
-        {professional.subscriptionTier === 'enterprise' && (
+        {professional.subscriptionTier === 'pro' && (
           <span className="absolute top-4 left-4 px-3 py-1.5 bg-golden text-coal text-xs font-bold rounded-full">
-            Enterprise
+            PRO
           </span>
         )}
 

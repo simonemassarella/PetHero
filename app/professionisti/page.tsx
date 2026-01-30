@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Check, Star, Users, TrendingUp, Shield, Zap, Award, ArrowRight, Briefcase, PawPrint, Sparkles, Rocket, User } from 'lucide-react'
+import { Check, Star, Users, TrendingUp, Shield, Zap, Award, ArrowRight, Briefcase, PawPrint, Sparkles, Rocket, User, Wallet } from 'lucide-react'
 import { subscriptionPlans } from '@/data/subscriptions'
 import { formatPrice } from '@/lib/utils'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -160,19 +160,19 @@ export default function ProfessionistiPage() {
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 bg-golden/10 text-golden px-4 py-2 rounded-full text-sm font-medium mb-4">
-                💰 Piani
+                <Wallet size={16} /> Piani
               </span>
               <h2 className="text-4xl md:text-5xl font-display uppercase">
                 <span className="text-violet">SCEGLI IL TUO </span>
                 <span className="text-teal">PIANO</span>
               </h2>
               <p className="text-coal text-lg mt-4 max-w-2xl mx-auto">
-                Piani flessibili per ogni esigenza, dalla registrazione gratuita ai piani enterprise
+                BASE: la piattaforma trattiene 3€ per ogni prenotazione. PRO: 29€/mese e 0€ commissioni.
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {subscriptionPlans.map((plan, i) => (
               <AnimatedSection key={plan.id} animation="fade-up" delay={i * 0.1}>
                 <div
@@ -193,9 +193,11 @@ export default function ProfessionistiPage() {
                     <h3 className="font-display text-2xl text-violet uppercase">{plan.name}</h3>
                     <div className="mt-4">
                       <span className="text-4xl font-display text-coal">
-                        {plan.price === 0 ? 'Gratis' : formatPrice(plan.price)}
+                        {plan.id === 'base' ? '3€' : formatPrice(plan.price)}
                       </span>
-                      {plan.price > 0 && (
+                      {plan.id === 'base' ? (
+                        <span className="text-coal/60">/prenotazione</span>
+                      ) : (
                         <span className="text-coal/60">/mese</span>
                       )}
                     </div>
@@ -211,14 +213,14 @@ export default function ProfessionistiPage() {
                   </ul>
 
                   <Link
-                    href={plan.price === 0 ? '/signup?role=professional' : `/checkout?plan=${plan.id}`}
+                    href={plan.id === 'base' ? '/signup?role=professional' : `/checkout?plan=${plan.id}`}
                     className={`block text-center py-3 rounded-full font-bold transition-all duration-300 ${
                       plan.highlighted
                         ? 'bg-golden text-coal border-b-4 border-violet hover:bg-golden-light hover:-translate-y-1'
                         : 'bg-violet text-serenade hover:bg-violet-light'
                     }`}
                   >
-                    {plan.price === 0 ? 'Inizia Gratis' : 'Scegli Piano'}
+                    {plan.id === 'base' ? 'Inizia' : 'Attiva PRO'}
                   </Link>
                 </div>
               </AnimatedSection>
@@ -233,7 +235,7 @@ export default function ProfessionistiPage() {
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 bg-violet/10 text-violet px-4 py-2 rounded-full text-sm font-medium mb-4">
-                ⭐ Testimonianze
+                <Star size={16} /> Testimonianze
               </span>
               <h2 className="text-4xl md:text-5xl font-display uppercase">
                 <span className="text-violet">COSA DICONO I </span>

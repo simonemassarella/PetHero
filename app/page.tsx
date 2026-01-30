@@ -9,6 +9,7 @@ import {
   Quote, 
   Star,
   Users,
+  CreditCard,
   Home as HomeIcon,
   GraduationCap,
   Building2,
@@ -25,6 +26,7 @@ import {
 import { professionals, serviceTypeLabels, ServiceType } from '@/data/professionals'
 import CardProfessionista from '@/components/CardProfessionista'
 import AnimatedSection, { StaggeredChildren, AnimatedCounter } from '@/components/AnimatedSection'
+import HeroSearch from '@/components/HeroSearch'
 
 const services: { type: ServiceType; description: string; icon: React.ElementType }[] = [
   { type: 'pet_sitter', icon: Dog, description: 'Affida il tuo pet a professionisti esperti per custodia e compagnia quotidiana.' },
@@ -47,7 +49,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Mobile-first design from Figma with animations */}
-      <section className="relative min-h-[100svh] flex flex-col items-center justify-center bg-serenade overflow-hidden px-4 sm:px-6 lg:px-8 pt-28 pb-20 sm:py-20">
+      <section className="relative sm:min-h-[100svh] flex flex-col items-center justify-start sm:justify-center bg-serenade overflow-hidden px-4 sm:px-6 lg:px-8 pt-[47px] pb-[56px] sm:py-20">
         {/* Background Decorations with animations */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Animated Paw prints */}
@@ -61,68 +63,67 @@ export default function Home() {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 w-full max-w-6xl mx-auto text-center flex flex-col items-center gap-4">
+        <div className="relative z-10 w-full max-w-6xl mx-auto text-center flex flex-col items-center gap-3 sm:gap-4">
           
           {/* Main Title with staggered animation */}
-          <h1 className="font-display uppercase leading-[0.85]">
-            <span className="block text-[4.9rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] text-violet leading-[0.85] animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              IL MIGLIOR
-            </span>
-            <span className="block text-[4.9rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] text-violet leading-[0.85] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              PET CARE
-            </span>
-            <span className="block text-[3.3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6.5rem] xl:text-[8rem] leading-[0.85] mt-1 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <span className="text-violet">PER IL TUO </span>
-              <span className="text-teal animate-pulse-slow">AMICO</span>
+          <h1 className="font-display uppercase leading-[0.8] sm:leading-[0.85]">
+            {/* <span className="block text-[2.8rem] sm:text-[4.4rem] md:text-[5.2rem] lg:text-[6.6rem] xl:text-[7.4rem] text-violet leading-[0.85] sm:leading-[0.9] animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+              TROVA E PRENOTA
+            </span> */}
+            <span className="block text-[2.8rem] sm:text-[4.4rem] md:text-[5.2rem] lg:text-[6.6rem] xl:text-[7.4rem] leading-[0.85] sm:leading-[0.9] mt-0 sm:mt-1 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <span className="text-violet"><span className='text-teal animate-pulse-slow'>PET SITTER </span>PER CANI E GATTI, </span>
+              <span className="text-teal animate-pulse-slow">NELLA</span>
+              <span className="text-teal animate-pulse-slow block sm:inline">TUA ZONA</span>
             </span>
           </h1>
 
           {/* Payoff with animation */}
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-coal font-medium max-w-xs sm:max-w-lg md:max-w-2xl mx-auto animate-fade-in-up text-center" style={{ animationDelay: '0.4s' }}>
-            Chi si prende cura del tuo{' '}
-            <span className="text-violet font-bold relative inline-block hover:scale-110 transition-transform cursor-default">
-              pet
-              <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-violet/40 rounded-full" />
-            </span>
-            , come<br className="sm:hidden" />{' '}
-            faresti{' '}
-            <span className="text-golden font-bold relative inline-block hover:scale-110 transition-transform cursor-default">
-              tu
-              <span className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-golden/50 rounded-full" />
-            </span>
-            .
+            <span className="block">Cerca per zona, confronta i servizi e paga</span>
+            <span className="block">online in sicurezza.</span>
           </p>
 
           {/* CTA Button with shimmer effect */}
-          <div className="animate-fade-in-up pt-4" style={{ animationDelay: '0.5s' }}>
+          <div className="animate-fade-in-up pt-3 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:max-w-none" style={{ animationDelay: '0.5s' }}>
             <Link 
               href="/cerca" 
-              className="group relative inline-flex items-center gap-2 bg-golden text-coal px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl border-b-4 border-violet shadow-xl hover:shadow-2xl hover:bg-golden-light hover:-translate-y-2 hover:scale-105 transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center justify-center gap-2 bg-golden text-coal px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl leading-tight border-b-4 border-violet shadow-xl hover:shadow-2xl hover:bg-golden-light hover:-translate-y-2 hover:scale-105 transition-all duration-300 overflow-hidden w-full sm:w-auto sm:shrink-0 sm:whitespace-nowrap"
             >
               {/* Shimmer Effect */}
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              <span className="relative">Trova Professionista</span>
+              <span className="relative">Trova un professionista per il tuo pet</span>
               <ArrowRight size={20} strokeWidth={2.5} className="relative group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="/professionisti"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 md:px-8 py-3.5 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg md:text-xl leading-tight border-2 border-violet text-violet bg-white/70 backdrop-blur-sm hover:bg-white hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto sm:shrink-0 sm:whitespace-nowrap"
+            >
+              Sei un professionista? Iscriviti
             </Link>
           </div>
 
           {/* Happy Paws Badge with hover effects */}
-          <div className="pt-4 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-3 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-default group">
-              <div className="relative h-8 w-20">
-                <div className="absolute left-0 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-10">
-                  <Image src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=100" alt="Pet" fill className="object-cover" />
-                </div>
-                <div className="absolute left-4 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-20" style={{ transitionDelay: '50ms' }}>
-                  <Image src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100" alt="Pet" fill className="object-cover" />
-                </div>
-                <div className="absolute left-8 top-0 w-8 h-8 rounded-full overflow-hidden border-2 border-violet transition-transform duration-300 group-hover:scale-110 group-hover:z-30" style={{ transitionDelay: '100ms' }}>
-                  <Image src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=100" alt="Pet" fill className="object-cover" />
-                </div>
+          <div className="pt-3 sm:pt-4 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <HeroSearch />
+          </div>
+
+          {/* Happy Paws Badge with hover effects */}
+          <div className="pt-2 sm:pt-4 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="w-full sm:max-w-2xl backdrop-blur-sm bg-white/70 px-5 py-3 rounded-3xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-default">
+              <div className="flex flex-row flex-nowrap items-center justify-center gap-4 sm:gap-6">
+                <span className="inline-flex items-center justify-center gap-2 text-coal text-sm font-semibold whitespace-nowrap">
+                  <ShieldCheck size={18} className="text-violet" strokeWidth={2.5} />
+                  Professionisti verificati
+                </span>
+                <span className="inline-flex items-center justify-center gap-2 text-coal text-sm font-semibold whitespace-nowrap">
+                  <CreditCard size={18} className="text-violet" strokeWidth={2.5} />
+                  Pagamenti sicuri
+                </span>
+                <span className="inline-flex items-center justify-center gap-2 text-coal text-sm font-semibold whitespace-nowrap">
+                  <CheckCircle2 size={18} className="text-violet" strokeWidth={2.5} />
+                  Prezzi chiari
+                </span>
               </div>
-              <span className="text-coal text-xs font-semibold whitespace-nowrap">
-                <AnimatedCounter end={2500} duration={2000} suffix="+ Happy Paws" />
-              </span>
             </div>
           </div>
         </div>
@@ -149,10 +150,10 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="relative h-52 rounded-3xl overflow-hidden border-b-4 border-violet/20 shadow-card hover:shadow-card-hover transition-all duration-300">
-                  <Image src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400" alt="Dog" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+                  <Image src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400" alt="Pet" fill className="object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="relative h-72 rounded-3xl overflow-hidden border-b-4 border-violet/20 shadow-card hover:shadow-card-hover transition-all duration-300">
-                  <Image src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400" alt="Dogs" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+                  <Image src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400" alt="Pets" fill className="object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
               <div className="space-y-4 pt-10">
@@ -160,7 +161,7 @@ export default function Home() {
                   <Image src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400" alt="Cat" fill className="object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="relative h-52 rounded-3xl overflow-hidden border-b-4 border-violet/20 shadow-card hover:shadow-card-hover transition-all duration-300">
-                  <Image src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400" alt="Dog grooming" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+                  <Image src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400" alt="Pet grooming" fill className="object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
             </div>
@@ -356,9 +357,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'Marco B.', city: 'Gaeta', title: 'Il Nostro Labrador Adora!', text: 'Ho trovato una dog sitter fantastica per il mio Labrador. Il servizio è stato impeccabile e il mio cane era felicissimo! Torneremo sicuramente!' },
-              { name: 'Giulia R.', city: 'Formia', title: 'Vacanze Perfette!', text: 'La pensione che ho trovato su PetLife è stata perfetta per le vacanze. Il mio cane è tornato rilassato e coccolato. Consigliatissimo!' },
-              { name: 'Andrea M.', city: 'Terracina', title: 'Progressi Incredibili!', text: 'Grazie all\'educatore trovato qui, il mio cane ha fatto progressi incredibili. Professionalità e competenza al top!' },
+              { name: 'Marco B.', city: 'Gaeta', title: 'Il Nostro Pet Adora!', text: 'Ho trovato un pet sitter fantastico per il mio cane. Il servizio è stato impeccabile e il mio pet era felicissimo! Torneremo sicuramente!' },
+              { name: 'Giulia R.', city: 'Formia', title: 'Vacanze Perfette!', text: 'La pensione che ho trovato su PetLife è stata perfetta per le vacanze. Il mio gatto è tornato rilassato e coccolato. Consigliatissimo!' },
+              { name: 'Andrea M.', city: 'Terracina', title: 'Progressi Incredibili!', text: 'Grazie al professionista trovato qui, il mio pet ha fatto progressi incredibili. Professionalità e competenza al top!' },
             ].map((testimonial, i) => (
               <AnimatedSection key={i} animation="slide-left" delay={i * 150}>
                 <div className="group bg-serenade rounded-3xl p-8 relative border-b-4 border-violet/20 hover:-translate-y-3 hover:shadow-xl transition-all duration-300 h-full">

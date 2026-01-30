@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { MapPin, Star, Phone, Mail, Clock, BadgeCheck, ArrowLeft, Share2, ExternalLink } from 'lucide-react'
+import { MapPin, Star, Clock, BadgeCheck, ArrowLeft, Share2, ExternalLink } from 'lucide-react'
 import { getProfessionalById, serviceTypeLabels, serviceTypeIcons } from '@/data/professionals'
 import { formatPrice, formatDate } from '@/lib/utils'
-import FormContatto from '@/components/FormContatto'
+import ProfileContactGate from '@/components/ProfileContactGate'
 
 interface ProfiloPageProps {
   params: { id: string }
@@ -245,28 +245,7 @@ export default function ProfiloPage({ params }: ProfiloPageProps) {
           <div className="space-y-6">
             {/* Contact Card */}
             <div className="card p-6 sticky top-24">
-              <FormContatto professional={professional} />
-
-              {/* Quick Contact */}
-              <div className="mt-6 pt-6 border-t border-neutral-100">
-                <p className="text-sm text-neutral-500 mb-3">Oppure contatta direttamente:</p>
-                <div className="space-y-2">
-                  <a
-                    href={`tel:${professional.phone}`}
-                    className="flex items-center gap-3 p-3 bg-secondary-50 text-secondary-700 rounded-xl hover:bg-secondary-100 transition-colors"
-                  >
-                    <Phone size={18} />
-                    <span className="font-medium">{professional.phone}</span>
-                  </a>
-                  <a
-                    href={`mailto:${professional.email}`}
-                    className="flex items-center gap-3 p-3 bg-accent-50 text-accent-700 rounded-xl hover:bg-accent-100 transition-colors"
-                  >
-                    <Mail size={18} />
-                    <span className="font-medium text-sm">{professional.email}</span>
-                  </a>
-                </div>
-              </div>
+              <ProfileContactGate professional={professional} />
             </div>
           </div>
         </div>

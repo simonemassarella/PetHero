@@ -37,7 +37,7 @@ export default function TerminiPage() {
             </h2>
             <div className="text-coal space-y-3 ml-13">
               <p>
-                PetLife è una piattaforma digitale che facilita l&apos;incontro tra proprietari di cani e professionisti (Dog Sitter, Pensioni, Educatori Cinofili).
+                PetLife è una piattaforma digitale che facilita l&apos;incontro tra proprietari di animali domestici (cani e gatti) e professionisti (Pet Sitter, Pensioni, Educatori, Toelettatori, Veterinari).
               </p>
               <p>
                 La piattaforma non fornisce direttamente i servizi sugli animali e non è responsabile per danni, incidenti o malattie dell&apos;animale.
@@ -79,7 +79,7 @@ export default function TerminiPage() {
             </h2>
             <ul className="text-coal space-y-3 ml-13 list-disc list-inside">
               <li>Il cliente accetta che PetLife è solo intermediario.</li>
-              <li>Deve fornire informazioni complete sul cane (salute, comportamenti, allergie).</li>
+              <li>Deve fornire informazioni complete sul pet (salute, comportamenti, allergie).</li>
               <li>È responsabile di eventuali informazioni errate o omissioni che possano causare problemi durante il servizio.</li>
             </ul>
           </section>
@@ -92,7 +92,7 @@ export default function TerminiPage() {
             </h2>
             <ul className="text-coal space-y-3 ml-13 list-disc list-inside">
               <li>Tutti i pagamenti passano tramite piattaforma con sistema sicuro di split payment (es. Stripe Connect).</li>
-              <li><strong className="text-coal-dark">Fee PetLife</strong> → trattenuta automatica (es. 3€ per lead o abbonamento)</li>
+              <li><strong className="text-coal-dark">Fee PetLife</strong> → trattenuta automatica (es. 3€ per ogni prenotazione con piano Base) e/o abbonamento mensile (es. 29€/mese piano PRO)</li>
               <li><strong className="text-coal-dark">Saldo netto</strong> → trasferito direttamente al professionista</li>
               <li>PetLife non è responsabile di ritardi nei pagamenti, ma garantisce trasparenza nella gestione.</li>
             </ul>

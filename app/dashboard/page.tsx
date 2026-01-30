@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { 
   User, Settings, CreditCard, BarChart3, MessageSquare, 
-  Calendar, Edit, Camera, Plus, LogOut, Bell, ChevronRight
+  Calendar, Edit, Camera, Plus, LogOut, Bell, ChevronRight, Construction
 } from 'lucide-react'
 import DashboardStats, { RecentContacts } from '@/components/DashboardStats'
 import { professionals } from '@/data/professionals'
@@ -226,13 +226,15 @@ export default function DashboardPage() {
                         <p className="font-semibold text-neutral-900">{currentPlan.name}</p>
                         <p className="text-sm text-neutral-600">Rinnovo: 1 Febbraio 2024</p>
                       </div>
-                      <p className="text-2xl font-bold text-primary-600">{formatPrice(currentPlan.price)}/mese</p>
+                      <p className="text-2xl font-bold text-primary-600">
+                        {currentPlan.id === 'base' ? '3€/prenotazione' : `${formatPrice(currentPlan.price)}/mese`}
+                      </p>
                     </div>
                   )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {subscriptionPlans.filter(p => p.id !== 'free').map(plan => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {subscriptionPlans.filter(p => p.id === 'pro').map(plan => (
                     <div
                       key={plan.id}
                       className={`card p-6 ${plan.highlighted ? 'ring-2 ring-primary-500' : ''}`}
@@ -273,7 +275,9 @@ export default function DashboardPage() {
 
             {(activeTab === 'contacts' || activeTab === 'calendar' || activeTab === 'settings') && (
               <div className="card p-12 text-center">
-                <div className="text-6xl mb-4">🚧</div>
+                <div className="mb-4 flex justify-center">
+                  <Construction size={56} className="text-violet" strokeWidth={1.5} />
+                </div>
                 <h2 className="text-xl font-semibold text-neutral-900 mb-2">
                   Sezione in Costruzione
                 </h2>

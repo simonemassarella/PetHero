@@ -33,7 +33,7 @@ export interface Professional {
   rating: number
   totalReviews: number
   verified: boolean
-  subscriptionTier: 'free' | 'basic' | 'premium' | 'enterprise'
+  subscriptionTier: 'base' | 'pro'
   createdAt: string
   gallery: string[]
 }
@@ -190,7 +190,7 @@ export const professionals: Professional[] = [
     rating: 4.9,
     totalReviews: 47,
     verified: true,
-    subscriptionTier: 'premium',
+    subscriptionTier: 'pro',
     createdAt: '2023-06-15',
     gallery: [
       'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600',
@@ -229,7 +229,7 @@ export const professionals: Professional[] = [
     rating: 4.7,
     totalReviews: 89,
     verified: true,
-    subscriptionTier: 'enterprise',
+    subscriptionTier: 'pro',
     createdAt: '2022-03-10',
     gallery: [
       'https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600',
@@ -268,7 +268,7 @@ export const professionals: Professional[] = [
     rating: 4.9,
     totalReviews: 124,
     verified: true,
-    subscriptionTier: 'premium',
+    subscriptionTier: 'pro',
     createdAt: '2021-09-20',
     gallery: [
       'https://images.unsplash.com/photo-1558929996-da64ba858215?w=600',
@@ -307,7 +307,7 @@ export const professionals: Professional[] = [
     rating: 4.6,
     totalReviews: 67,
     verified: true,
-    subscriptionTier: 'enterprise',
+    subscriptionTier: 'pro',
     createdAt: '2020-05-12',
     gallery: [
       'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600',
@@ -344,7 +344,7 @@ export const professionals: Professional[] = [
     rating: 4.8,
     totalReviews: 31,
     verified: true,
-    subscriptionTier: 'basic',
+    subscriptionTier: 'base',
     createdAt: '2023-11-05',
     gallery: [
       'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600',
@@ -379,7 +379,7 @@ export const professionals: Professional[] = [
     rating: 4.7,
     totalReviews: 42,
     verified: true,
-    subscriptionTier: 'basic',
+    subscriptionTier: 'base',
     createdAt: '2022-08-20',
     gallery: [
       'https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600',
@@ -415,7 +415,7 @@ export const professionals: Professional[] = [
     rating: 4.8,
     totalReviews: 156,
     verified: true,
-    subscriptionTier: 'premium',
+    subscriptionTier: 'pro',
     createdAt: '2021-02-15',
     gallery: [
       'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600',
@@ -452,7 +452,7 @@ export const professionals: Professional[] = [
     rating: 4.9,
     totalReviews: 312,
     verified: true,
-    subscriptionTier: 'enterprise',
+    subscriptionTier: 'pro',
     createdAt: '2019-06-01',
     gallery: [
       'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600',
@@ -488,7 +488,7 @@ export const professionals: Professional[] = [
     rating: 4.7,
     totalReviews: 89,
     verified: true,
-    subscriptionTier: 'basic',
+    subscriptionTier: 'base',
     createdAt: '2022-11-10',
     gallery: [
       'https://images.unsplash.com/photo-1544568100-847a948585b9?w=600',
@@ -524,7 +524,7 @@ export const professionals: Professional[] = [
     rating: 4.9,
     totalReviews: 67,
     verified: true,
-    subscriptionTier: 'premium',
+    subscriptionTier: 'pro',
     createdAt: '2020-09-15',
     gallery: [
       'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600',
@@ -560,7 +560,7 @@ export const professionals: Professional[] = [
     rating: 4.9,
     totalReviews: 89,
     verified: true,
-    subscriptionTier: 'premium',
+    subscriptionTier: 'pro',
     createdAt: '2019-03-10',
     gallery: [
       'https://images.unsplash.com/photo-1518882605630-8eb548e00a2e?w=600',

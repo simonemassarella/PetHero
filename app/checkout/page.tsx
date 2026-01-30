@@ -5,14 +5,37 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { CreditCard, Lock, Check, ArrowLeft, Shield, PawPrint } from 'lucide-react'
 import { subscriptionPlans } from '@/data/subscriptions'
+import { getProfessionalById } from '@/data/professionals'
 import { formatPrice } from '@/lib/utils'
+
+const UNLOCKED_KEY = 'petlife_unlocked_contacts'
+const UNLOCK_VERSION_KEY = 'petlife_unlocked_contacts_v'
+
+function unlockContact(professionalId: string) {
+  try {
+    localStorage.setItem(UNLOCK_VERSION_KEY, '2')
+    const raw = localStorage.getItem(UNLOCKED_KEY)
+    const ids = raw ? (JSON.parse(raw) as string[]) : []
+    const next = Array.isArray(ids) ? Array.from(new Set([...ids, professionalId])) : [professionalId]
+    localStorage.setItem(UNLOCKED_KEY, JSON.stringify(next))
+  } catch {
+    localStorage.setItem(UNLOCK_VERSION_KEY, '2')
+    localStorage.setItem(UNLOCKED_KEY, JSON.stringify([professionalId]))
+  }
+}
 
 function CheckoutContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
-  const planId = searchParams.get('plan') || 'premium'
-  
-  const selectedPlan = subscriptionPlans.find(p => p.id === planId) || subscriptionPlans[2]
+  const planId = searchParams.get('plan') || 'pro'
+  const professionalId = searchParams.get('professionalId')
+  const serviceId = searchParams.get('serviceId')
+  const returnUrl = searchParams.get('returnUrl')
+
+  const bookingProfessional = professionalId ? getProfessionalById(professionalId) : undefined
+  const bookingService = bookingProfessional?.services.find((s) => s.id === serviceId)
+
+  const selectedPlan = subscriptionPlans.find(p => p.id === planId) || subscriptionPlans[0]
 
   const [formData, setFormData] = useState({
     cardNumber: '',
@@ -38,8 +61,19 @@ function CheckoutContent() {
     setSuccess(true)
     setLoading(false)
 
+    if (bookingProfessional && bookingService) {
+      unlockContact(bookingProfessional.id)
+    }
+
     // Redirect dopo 3 secondi
     setTimeout(() => {
+      if (bookingProfessional && bookingService) {
+        const params = new URLSearchParams()
+        params.set('professionalId', bookingProfessional.id)
+        if (returnUrl) params.set('returnUrl', returnUrl)
+        router.push(`/thankyou?${params.toString()}`)
+        return
+      }
       router.push('/dashboard?subscription=success')
     }, 3000)
   }
@@ -65,6 +99,31 @@ function CheckoutContent() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
+  if (selectedPlan.id === 'base') {
+    return (
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center py-12 px-4">
+        <div className="max-w-md w-full text-center">
+          <div className="card p-8">
+            <h1 className="text-2xl font-display font-bold text-neutral-900 mb-2">
+              Il piano Base non richiede attivazione
+            </h1>
+            <p className="text-neutral-600 mb-6">
+              Con Base ti registri gratis: la piattaforma trattiene 3€ per ogni prenotazione pagata dal cliente.
+            </p>
+            <div className="flex flex-col gap-3">
+              <Link href="/signup?role=professional" className="btn-primary">
+                Registrati
+              </Link>
+              <Link href="/professionisti#pricing" className="btn-secondary">
+                Torna ai piani
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   if (success) {
     return (
       <div className="min-h-screen bg-neutral-50 flex items-center justify-center py-12 px-4">
@@ -74,10 +133,12 @@ function CheckoutContent() {
               <Check size={40} className="text-secondary-500" />
             </div>
             <h1 className="text-2xl font-display font-bold text-neutral-900 mb-2">
-              Pagamento Completato!
+              {bookingProfessional && bookingService ? 'Prenotazione Confermata!' : 'Pagamento Completato!'}
             </h1>
             <p className="text-neutral-600 mb-6">
-              Il tuo abbonamento {selectedPlan.name} è ora attivo. Verrai reindirizzato alla dashboard...
+              {bookingProfessional && bookingService
+                ? `Hai prenotato "${bookingService.name}" con ${bookingProfessional.name}. Verrai reindirizzato al profilo...`
+                : `Il tuo abbonamento ${selectedPlan.name} è ora attivo. Verrai reindirizzato alla dashboard...`}
             </p>
             <div className="animate-pulse text-primary-500">
               Reindirizzamento in corso...
@@ -93,7 +154,7 @@ function CheckoutContent() {
       <div className="max-w-4xl mx-auto">
         {/* Back Button */}
         <Link
-          href="/professionisti#pricing"
+          href={bookingProfessional ? `/profilo/${bookingProfessional.id}` : "/professionisti#pricing"}
           className="inline-flex items-center gap-2 text-neutral-600 hover:text-primary-500 mb-8"
         >
           <ArrowLeft size={18} />
@@ -107,34 +168,51 @@ function CheckoutContent() {
               <h2 className="text-lg font-semibold text-neutral-900 mb-4">Riepilogo Ordine</h2>
               
               <div className="p-4 bg-primary-50 rounded-xl mb-4">
-                <h3 className="font-semibold text-neutral-900">{selectedPlan.name}</h3>
+                <h3 className="font-semibold text-neutral-900">
+                  {bookingProfessional && bookingService ? bookingService.name : selectedPlan.name}
+                </h3>
                 <p className="text-3xl font-bold text-primary-600 mt-1">
-                  {formatPrice(selectedPlan.price)}
-                  <span className="text-sm font-normal text-neutral-500">/mese</span>
+                  {bookingProfessional && bookingService ? formatPrice(bookingService.price) : formatPrice(selectedPlan.price)}
+                  {bookingProfessional && bookingService ? null : (
+                    <span className="text-sm font-normal text-neutral-500">/mese</span>
+                  )}
                 </p>
               </div>
 
-              <ul className="space-y-2 mb-6">
-                {selectedPlan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check size={16} className="text-secondary-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-600">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              {!bookingProfessional || !bookingService ? (
+                <ul className="space-y-2 mb-6">
+                  {selectedPlan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      <Check size={16} className="text-secondary-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-neutral-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <div className="text-sm text-neutral-600 mb-6">
+                  <div className="flex items-center justify-between">
+                    <span>Professionista</span>
+                    <span className="font-medium text-neutral-900">{bookingProfessional.name}</span>
+                  </div>
+                  <div className="flex items-center justify-between mt-2">
+                    <span>Servizio</span>
+                    <span className="font-medium text-neutral-900">{bookingService.name}</span>
+                  </div>
+                </div>
+              )}
 
               <div className="border-t border-neutral-100 pt-4">
                 <div className="flex justify-between text-sm text-neutral-600 mb-2">
                   <span>Subtotale</span>
-                  <span>{formatPrice(selectedPlan.price)}</span>
+                  <span>{formatPrice(bookingProfessional && bookingService ? bookingService.price : selectedPlan.price)}</span>
                 </div>
                 <div className="flex justify-between text-sm text-neutral-600 mb-2">
                   <span>IVA (22%)</span>
-                  <span>{formatPrice(selectedPlan.price * 0.22)}</span>
+                  <span>{formatPrice((bookingProfessional && bookingService ? bookingService.price : selectedPlan.price) * 0.22)}</span>
                 </div>
                 <div className="flex justify-between font-semibold text-neutral-900 text-lg pt-2 border-t border-neutral-100">
                   <span>Totale</span>
-                  <span>{formatPrice(selectedPlan.price * 1.22)}</span>
+                  <span>{formatPrice((bookingProfessional && bookingService ? bookingService.price : selectedPlan.price) * 1.22)}</span>
                 </div>
               </div>
 
